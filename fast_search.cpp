@@ -10,7 +10,7 @@
 
 using ll=long long int; 
 
-ll closestToLeft ( ll arr[], ll N, ll K ) {  // will search for element <=K [ from LEFT till K ]
+ll closestToLeft ( ll arr[], ll N, ll K ) {  // will search for element <=K [from LEFT till K]
     ll left = -1; 
     ll right = N;
 
@@ -23,7 +23,7 @@ ll closestToLeft ( ll arr[], ll N, ll K ) {  // will search for element <=K [ fr
     return left + 1; 
 }
 
-ll closestToRight ( ll arr[], ll N, ll K ) {  // will search for element >=K [ from RIGHT till K ] 
+ll closestToRight ( ll arr[], ll N, ll K ) {  // will search for element >=K [from RIGHT till K] 
     ll left = -1; 
     ll right = N; 
 
