@@ -2,7 +2,6 @@
 
  Fast search 
  Given an array find how many elements b/w L and R 
-
  */
 
 #include <iostream>
@@ -11,7 +10,7 @@
 
 using ll=long long int; 
 
-ll closestToLeft ( ll arr[], ll N, ll K ) { 
+ll closestToLeft ( ll arr[], ll N, ll K ) {  // will search for element <=K [ from LEFT till K ]
     ll left = -1; 
     ll right = N;
 
@@ -24,7 +23,7 @@ ll closestToLeft ( ll arr[], ll N, ll K ) {
     return left + 1; 
 }
 
-ll closestToRight ( ll arr[], ll N, ll K ) { 
+ll closestToRight ( ll arr[], ll N, ll K ) {  // will search for element >=K [ from RIGHT till K ] 
     ll left = -1; 
     ll right = N; 
 
