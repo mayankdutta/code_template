@@ -19,7 +19,7 @@ class Info {
         while ( !good ( right ) ) right *= 2; 
 
         //std::cout << w << " " << h << " " << n << "\n"; 
-        while ( right > left + 1 ) { 
+        while ( right > left + 1 ) {  // Do note type of binary_search we are using 
             ll mid = ( left + ( right - left ) / 2 ); 
             if ( good ( mid ) ) right = mid; 
             else left = mid; 
@@ -29,12 +29,14 @@ class Info {
     }
 
     bool good ( ll number ) {
+        // intentionally put like this 
         return ( number / w ) * ( number / h ) >= n; 
     }
 
 };
 
 int main () { 
+    //class formed to avoid global variables 
     Info i; 
     i.pseudo_main (); 
 
