@@ -1,7 +1,5 @@
 //THINK ALOUD !! 
-#include <iostream>
-#include <algorithm>
-#include <vector>
+#include <bits/stdc++.h>
 
 using namespace std;
 using ll=long long int;
@@ -27,7 +25,7 @@ using lld=long double;
 #define all(c) (c).begin(), (c).end()
 #define mod 1000000007
 
-ll binpow(ll a, ll b) {
+ll bin_pow(ll a, ll b) {
     if (b == 0)
         return 1;
     long long res = binpow(a, b / 2);
@@ -38,14 +36,26 @@ ll binpow(ll a, ll b) {
 }
 
 template <typename t> inline void print ( const t & v ){
-    std::cout << "Printing the container: " << endl;
     for ( const auto & i: v) {
         std::cout << i << " ";
     }
     std::cout << endl;
 }
 
-int main () { 
-    std::cout << "Hello, Mayank how it's going " << endl;
+bool comp ( int a, int b ) { 
+    return a > b; 
 }
 
+string dec_to_bin ( int n ) { 
+    string binary = std::bitset <8> ( n ).to_string ( ); 
+    return binary; 
+}
+
+unsigned long bin_to_dec ( string s ) { 
+    unsigned long decimal = std::bitset <8> ( s ).to_ulong ( ); 
+    return decimal;
+}
+
+int main () { 
+    cout << "Hello, World";
+}
