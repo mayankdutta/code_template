@@ -14,7 +14,7 @@ class UnionFind {
     }
 
     int findSet (int i) { 
-        return (p[i] == i) ? i : (p[i] == findSet (p[i])); 
+        return (p[i] == i) ? i : (p[i] = findSet (p[i])); 
     }
 
     bool isSameSet (int i, int j) { 
