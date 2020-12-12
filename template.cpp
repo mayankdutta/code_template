@@ -28,7 +28,7 @@ using lld=long double;
 ll bin_pow(ll a, ll b) {
     if (b == 0)
         return 1;
-    long long res = binpow(a, b / 2);
+    long long res = bin_pow(a, b / 2);
     if (b % 2)
         return res * res * a;
     else
@@ -57,7 +57,7 @@ unsigned long bin_to_dec ( string s ) {
 }
 
 unsigned int next_highest_power_of2 (unsigned int v) { 
-    unsigned int v; // compute the next highest power of 2 of 32-bit v
+//    unsigned int v; // compute the next highest power of 2 of 32-bit v
     v--;
     v |= v >> 1;
     v |= v >> 2;
