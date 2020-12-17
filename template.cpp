@@ -25,38 +25,33 @@ using lld=long double;
 #define all(c) (c).begin(), (c).end()
 #define mod 1000000007
 
-ll bin_pow(ll a, ll b) {
-    if (b == 0)
-        return 1;
+ll bin_pow (ll a, ll b) {
+    if (b == 0) return 1;
+    
     long long res = bin_pow(a, b / 2);
-    if (b % 2)
-        return res * res * a;
-    else
-        return res * res;
+    
+    if (b % 2) return res * res * a;
+    else return res * res;
 }
 
-template <typename t> inline void print ( const t & v ){
-    for ( const auto & i: v) {
+template <typename t> inline void print (const t & v){
+    for (const auto & i: v) {
         std::cout << i << " ";
     }
-    std::cout << endl;
+    std::cout << '\n';
 }
 
-bool comp ( int a, int b ) { 
-    return a > b; 
-}
-
-string dec_to_bin ( int n ) { 
+string dec_to_bin (int n) { 
     string binary = std::bitset <8> ( n ).to_string ( ); 
     return binary; 
 }
 
-unsigned long bin_to_dec ( string s ) { 
+unsigned long bin_to_dec (string s) { 
     unsigned long decimal = std::bitset <8> ( s ).to_ulong ( ); 
     return decimal;
 }
 
-unsigned int next_highest_power_of2 (unsigned int v) { 
+unsigned int next_power_of2 (unsigned int v) { 
 //    unsigned int v; // compute the next highest power of 2 of 32-bit v
     v--;
     v |= v >> 1;
