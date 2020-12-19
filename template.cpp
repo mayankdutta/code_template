@@ -63,6 +63,10 @@ unsigned int next_power_of2 (unsigned int v) {
     return v; 
 }
 
+int digit (ll i) { 
+    return i > 0 ? (int) log10 ((double) i) + 1 : 1;
+}
+
 int main () { 
     cout << "Hello, World";
 }
