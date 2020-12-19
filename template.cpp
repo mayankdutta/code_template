@@ -1,5 +1,6 @@
 //THINK ALOUD !! 
 #include <bits/stdc++.h>
+#define what_is(x) cout << "value of " << #x << " :: " << x << '\n'  
 
 using namespace std;
 using ll=long long int;
