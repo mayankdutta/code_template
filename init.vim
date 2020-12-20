@@ -7,8 +7,8 @@ set ttyfast
 
 set relativenumber
 set showmode                    " always show what mode we're currently editing in
+set formatoptions-=cro                  " Stop newline continution of comments
 set nowrap                      " don't wrap lines
-set smarttab
 set tags=tags
 set expandtab                   " expand tabs by default (overloadable per file type later)
 set shiftround                  " use multiple of shiftwidth when indenting with '<' and '>'
@@ -30,10 +30,35 @@ set wildmenu            " visual autocomplete for command menu
 set lazyredraw          " redraw screen only when we need to
 set showmatch           " highlight matching parentheses / brackets [{()}]
 set laststatus=2        " always show statusline (even with only single window)
+set showtabline=2                       " Always show tabs
+set cmdheight=2                         " More space for displaying messages
+
+"""" for windows 
+set splitbelow                          " Horizontal splits will automatically be below
+set splitright                          " Vertical splits will automatically be to the right
+" Use alt + hjkl to resize windows
+nnoremap <M-j>    :resize -2<CR>
+nnoremap <M-k>    :resize +2<CR>
+nnoremap <M-h>    :vertical resize -2<CR>
+nnoremap <M-l>    :vertical resize +2<CR>
+
+" Better window navigation
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
 
 
 """" Tab settings
 set softtabstop=4       " backspace after pressing <TAB> will remove up to this many spaces
+" TAB in general mode will move to text buffer
+nnoremap <TAB> :bnext<CR>
+" SHIFT-TAB will go back
+nnoremap <S-TAB> :bprevious<CR>
+
+
+
+
 
 """" Search settings
 set incsearch           " search as characters are entered
@@ -46,12 +71,15 @@ set cursorline         " highlight current line
 set autoread           " autoreload the file in Vim if it has been changed outside of Vim
 
 """"indenting
-:set tabstop=8     " tabs are at proper location
-:set expandtab     " don't use actual tab character (ctrl-v)
-:set shiftwidth=4  " indenting is 4 spaces
-:set autoindent    " turns it on
-:set smartindent   " does the right thing (mostly) in programs
-:set cindent       " stricter rules for C programs
+set tabstop=2                           " Insert 2 spaces for a tab
+set expandtab     " don't use actual tab character (ctrl-v)
+set shiftwidth=2                        " Change the number of space characters inserted for indentation
+set autoindent    " turns it on
+set smartindent   " does the right thing (mostly) in programs
+set cindent       " stricter rules for C programs
+set smarttab
+set ruler
+set conceallevel=0                      " So that I can see `` in markdown files
 
 
 
@@ -59,10 +87,12 @@ call plug#begin("~/.vim/plugged")
 " Plugin Section
 
 Plug 'scrooloose/nerdtree'
-Plug 'ryanoasis/vim-devicons'
-Plug 'dracula/vim'
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'junegunn/fzf.vim'
+Plug 'ryanoasis/vim-devicons' "for icons 
+Plug 'dracula/vim' "theme 
+Plug 'rbong/vim-crystalline' "status line 
+"Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+"Plug 'junegunn/fzf.vim'
+Plug 'sheerun/vim-polyglot' "for js and python better hightlighting
 
 "for node js
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -71,14 +101,21 @@ let g:coc_global_extensions = ['coc-emmet', 'coc-css', 'coc-html', 'coc-json', '
 
 Plug 'leafgarland/typescript-vim'
 Plug 'peitalin/vim-jsx-typescript'
+"vim surround as was mentioned in the book
+Plug 'tpope/vim-surround'
+Plug 'bfrg/vim-cpp-modern' 
+
+"Plug 'bling/vim-airline'
+
 
 call plug#end()
 "Config Section
 
 if (has("termguicolors"))
- set termguicolors
+  set termguicolors
 endif
 syntax enable
+
 colorscheme dracula
 
 let g:NERDTreeShowHidden = 1
@@ -106,10 +143,12 @@ endfunction
 nnoremap <c-n> :call OpenTerminal()<CR>
 
 
-nnoremap <C-p> :FZF<CR>
-let g:fzf_action = {
-  \ 'ctrl-t': 'tab split',
-  \ 'ctrl-s': 'split',
-  \ 'ctrl-v': 'vsplit'
-  \}
+"nnoremap <C-p> :FZF<CR>
+"let g:fzf_action = {
+      "\ 'ctrl-t': 'tab split',
+      "\ 'ctrl-s': 'split',
+      "\ 'ctrl-v': 'vsplit'
+"\}
 
+
+"for crystalline
