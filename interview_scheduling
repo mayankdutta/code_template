@@ -1,0 +1,23 @@
+//scheduling 
+    vector <pii> arr(n); 
+
+    for (int i=0; i<n; i++) { 
+        cin >> arr[i].x >> arr[i].y; 
+    }
+
+    sort ( all (arr), [] (const pii &a, const pii &b) -> bool {
+            return a.second < b.second; 
+            }); 
+
+
+    int begin = 0; 
+    int count = 1; 
+    for (int i=1; i<n; i++) { 
+        if (arr[begin].y <= arr[i].x) { 
+            begin = i; 
+            count ++; 
+        }
+    }
+
+    cout << count << "\n"; 
+}
