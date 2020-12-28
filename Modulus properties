@@ -1,0 +1,12 @@
+// Find the area of a large square
+long long ans = sum * sum% mod;
+
+
+// Divide by 2 (use the inverse element)
+// ans / = 2 with mod 1000000007 will look like this
+// just to do ans = ans / 2 we had to include mod. 
+ans * = (mod + 1) / 2;
+ans% = mod;
+ 
+cout << ans << endl;
+}
