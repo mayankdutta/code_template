@@ -24,6 +24,7 @@ using lld=long double;
 #define per( i, a, n ) for( ll i=n-1; i>=a; i--)
 #define repp( i, a, n, p ) for( ll i=a; i<n; i+=p)
 #define all(c) (c).begin(), (c).end()
+#define lla(c) (c).rbegin(), (c).rend()
 #define mod 1000000007
 
 class Bignum {
