@@ -52,7 +52,16 @@ int digit (ll i) {
     return i > 0 ? (int) log10 ((double) i) + 1 : 1;
 }
 
+void solve () { 
+
+}
+
 int main ( ) { 
     fast; 
+    int t;
+    //cin >> t;
+    
+    //while (t--) 
+        solve (); 
     cout << "Hello, World\n"; 
 }
