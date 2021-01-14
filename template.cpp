@@ -38,9 +38,15 @@ ll bin_pow (ll a, ll b) {
 template <typename t> inline void print (const t & v){
     for (const auto & i: v) {
         std::cout << i << " ";
-    }
-    std::cout << '\n';
+    } std::cout << '\n';
 }
+
+template <typename t> inline void printt (const t & v) { 
+    for (const auto &i: v) { 
+        std::cout << i.first << " -> " << i.second << '\n';
+    } std::cout << '\n';
+}
+
 
 int digit (ll i) { 
     return i > 0 ? (int) log10 ((double) i) + 1 : 1;
