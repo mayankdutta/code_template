@@ -12,6 +12,8 @@ using lld=long double;
 
 #define pll pair<ll,ll>
 #define pii pair<int,int> 
+#define pci pair<char,int> 
+#define pic pair<int,char> 
 #define pls pair<ll,string>
 #define psl pair<string,ll>
 #define pis pair<int,string>
