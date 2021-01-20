@@ -31,7 +31,7 @@ using lld=long double;
 #define mod 1000000007
 #define Size 2000000
 
-template <typename t> inline void print (const t & v){
+template <typename t> inline void print (const t & v) {
     for (const auto & i: v) {
         std::cout << i << " ";
     } std::cout << '\n';
@@ -39,7 +39,7 @@ template <typename t> inline void print (const t & v){
 
 template <typename t> inline void printt (const t & v) { 
     for (const auto &i: v) { 
-        std::cout << i.first << " -> " << i.second << '\n';
+        std::cout << i.first << " " << i.second << '\n';
     } std::cout << '\n';
 }
 
@@ -81,3 +81,14 @@ int main ( ) {
         solve (); 
     cout << "Hello, World\n"; 
 }
+
+/*
+Build and running
+g++ --std=c++17 -Wall -Wextra -Wshadow -fsanitize=undefined FILE.cpp && ./a.out < in 
+
+Naming 
+-for types (class/struct name) UpperCamelCase: Point, Info, SegTree 
+-functions and variable lowerCamelCase: someMethod, someVariable 
+-MACROS and constants all capital letters separated by _ : SOME_MACRO, MAX_N, MOD
+
+*/
