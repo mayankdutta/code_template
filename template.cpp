@@ -23,62 +23,62 @@ using lld=long double;
 #define fast ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0);
 
 
-#define rep( i, a, n ) for( ll i=a; i<n; i++)
-#define per( i, a, n ) for( ll i=n-1; i>=a; i--)
-#define repp( i, a, n, p ) for( ll i=a; i<n; i+=p)
+#define rep(i, a, n) for (ll i=a; i<n; i++)
+#define per(i, a, n) for (ll i=n-1; i>=a; i--)
+#define repp(i, a, n, p) for (ll i=a; i<n; i+=p)
 #define all(c) (c).begin(), (c).end()
 #define lla(c) (c).rbegin(), (c).rend()
 #define mod 1000000007
 #define Size 2000000
 
-template <typename t> inline void print (const t & v) {
-    for (const auto & i: v) {
+template <typename t> inline void print(const t & v) {
+    for (const auto& i : v) {
         std::cout << i << " ";
     } std::cout << '\n';
 }
 
-template <typename t> inline void printt (const t & v) { 
-    for (const auto &i: v) { 
+template <typename t> inline void printt(const t & v) { 
+    for (const auto& i : v) { 
         std::cout << i.first << " " << i.second << '\n';
     } std::cout << '\n';
 }
 
-ll bin_pow (ll a, ll b) {
+ll bin_pow(ll a, ll b) {
     if (b == 0) return 1;
     long long res = bin_pow(a, b / 2);
     if (b % 2) return res * res * a;
     else return res * res;
 }
 
-int digit (ll i) { 
+int digit(ll i) { 
     return i > 0 ? (int) log10 ((double) i) + 1 : 1;
 }
 
-vector <bool> isPrime (Size, true);
-void make_seive () { 
-    isPrime [0] = false; 
-    isPrime [1] = false; 
+vector<bool> isPrime(Size, true);
+void make_seive() { 
+    isPrime[0] = false; 
+    isPrime[1] = false; 
 
-    for (int i = 2; i <= sqrt (Size); i++) { 
-        if (isPrime [i]) { 
+    for (int i = 2; i <= sqrt(Size); i++) { 
+        if (isPrime[i]) { 
             for (int j = i * 2; j <= Size; j += i) { 
-                isPrime [j] = false; 
+                isPrime[j] = false; 
             }
         }
     }
 }
 
 
-void solve () { 
+void solve() { 
 
 }
 
-int main ( ) { 
+int main( ) { 
     fast; 
     //int t;
     //cin >> t;
     //while (t--) 
-        solve (); 
+        solve(); 
     cout << "Hello, World\n"; 
 }
 
