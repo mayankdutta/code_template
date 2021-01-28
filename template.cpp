@@ -10,22 +10,22 @@ using lld=long double;
 #define pb push_back
 #define accu accumulate 
 
-#define pll pair<ll,ll>
-#define pii pair<int,int> 
-#define pci pair<char,int> 
-#define pic pair<int,char> 
-#define pls pair<ll,string>
-#define psl pair<string,ll>
-#define pis pair<int,string>
-#define psi paid<string,int>
+#define pll pair<ll, ll>
+#define pii pair<int, int> 
+#define pci pair<char, int> 
+#define pic pair<int, char> 
+#define pls pair<ll, string>
+#define psl pair<string, ll>
+#define pis pair<int, string>
+#define psi paid<string, int>
 #define x first 
 #define y second
 #define fast ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0);
 
 
-#define rep(i, a, n) for (ll i=a; i<n; i++)
-#define per(i, a, n) for (ll i=n-1; i>=a; i--)
-#define repp(i, a, n, p) for (ll i=a; i<n; i+=p)
+#define rep(i, a, n) for (ll i = a; i < n; i++)
+#define per(i, a, n) for (ll i = n-1; i >= a; i--)
+#define repp(i, a, n, p) for (ll i = a; i < n; i += p)
 #define all(c) (c).begin(), (c).end()
 #define lla(c) (c).rbegin(), (c).rend()
 #define mod 1000000007
@@ -73,7 +73,7 @@ void solve() {
 
 }
 
-int main( ) { 
+int main() { 
     fast; 
     //int t;
     //cin >> t;
