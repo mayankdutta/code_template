@@ -29,7 +29,7 @@ using lld=long double;
 #define all(c) (c).begin(), (c).end()
 #define lla(c) (c).rbegin(), (c).rend()
 #define mod 1000000007
-#define Size 2000000
+#define primeSize 2000000
 
 template <typename t> inline void print(const t & v) {
     for (const auto& i : v) {
@@ -54,14 +54,14 @@ int digit(ll i) {
     return i > 0 ? (int) log10 ((double) i) + 1 : 1;
 }
 
-vector<bool> isPrime(Size, true);
+vector<bool> isPrime(primeSize, true);
 void make_seive() { 
     isPrime[0] = false; 
     isPrime[1] = false; 
 
-    for (int i = 2; i <= sqrt(Size); i++) { 
+    for (int i = 2; i <= sqrt(primeSize); i++) { 
         if (isPrime[i]) { 
-            for (int j = i * 2; j <= Size; j += i) { 
+            for (int j = i * 2; j <= primeSize; j += i) { 
                 isPrime[j] = false; 
             }
         }
