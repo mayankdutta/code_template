@@ -75,9 +75,9 @@ void solve() {
 
 int main() { 
     fast; 
-    //int t;
+    int t = 1;
     //cin >> t;
-    //while (t--) 
+    while (t--) 
         solve(); 
     cout << "Hello, World\n"; 
 }
