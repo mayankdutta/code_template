@@ -83,6 +83,11 @@ int main() {
 }
 
 /*
+Tips:
+-- for queries involving sum using queue or minimum sum of size k, do also consider prefix sum. 
+*/
+
+/*
 Build and running
 g++ --std=c++17 -Wall -Wextra -Wshadow -fsanitize=undefined FILE.cpp && ./a.out < in 
 
