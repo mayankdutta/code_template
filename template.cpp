@@ -18,8 +18,8 @@ using lld=long double;
 #define psl pair<string, ll>
 #define pis pair<int, string>
 #define psi paid<string, int>
-#define x first 
-#define y second
+// #define x first 
+// #define y second
 #define fast ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0);
 
 
