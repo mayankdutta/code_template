@@ -89,7 +89,7 @@ Tips:
 
 /*
 Build and running
-g++ --std=c++17 -Wall -Wextra -Wshadow -fsanitize=undefined FILE.cpp && ./a.out < in 
+g++ --std=c++17 -Wall -Wextra -Wshadow -fsanitize=undefined -fsanitize=address FILE.cpp && ./a.out < in 
 
 Naming 
 -for types (class/struct name) UpperCamelCase: Point, Info, SegTree 
