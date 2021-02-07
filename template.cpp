@@ -1,7 +1,9 @@
 //THINK ALOUD !! 
 #include <bits/stdc++.h>
-#define what_is(x) cout << " -> [ " << #x << " = " << x << "]\n" 
-#define what_iss(x, y) cout << " -> [ " << #x << " = " << x << " , " << #y << " = " << y << " ]\n"  
+#define what_is_one(x) cout << " -> [ " << #x << " = " << x << "]\n" 
+#define what_is_two(x, y) cout << " -> [ " << #x << " = " << x << " , " << #y << " = " << y << " ]\n"
+#define what_is_three(x, y, z) cout << " -> [ " << #x << " = " << x << " , " << #y << " = " << y << " , " << #z << " = " << z << " ]\n";
+#define what_is_three(x, y, z, xx) cout << " -> [ " << #x << " = " << x << " , " << #y << " = " << y << " , " << #z << " = " << z << " , " << #xx << " = " << xx << " ]\n";
 
 using namespace std;
 using ll=long long int;
@@ -28,6 +30,7 @@ using lld=long double;
 #define repp(i, a, n, p) for (ll i = a; i < n; i += p)
 #define all(c) (c).begin(), (c).end()
 #define lla(c) (c).rbegin(), (c).rend()
+#define print_arr(arr, n) for (int i = 0; i < n; i++) std::cout << arr[i] << ' '; std::cout << '\n';
 #define mod 1000000007
 #define primeSize 2000000
 
