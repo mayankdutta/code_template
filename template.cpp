@@ -3,7 +3,7 @@
 #define what_is_one(x) cout << " -> [ " << #x << " = " << x << "]\n" 
 #define what_is_two(x, y) cout << " -> [ " << #x << " = " << x << " , " << #y << " = " << y << " ]\n"
 #define what_is_three(x, y, z) cout << " -> [ " << #x << " = " << x << " , " << #y << " = " << y << " , " << #z << " = " << z << " ]\n";
-#define what_is_three(x, y, z, xx) cout << " -> [ " << #x << " = " << x << " , " << #y << " = " << y << " , " << #z << " = " << z << " , " << #xx << " = " << xx << " ]\n";
+#define what_is_four(x, y, z, xx) cout << " -> [ " << #x << " = " << x << " , " << #y << " = " << y << " , " << #z << " = " << z << " , " << #xx << " = " << xx << " ]\n";
 
 using namespace std;
 using ll=long long int;
