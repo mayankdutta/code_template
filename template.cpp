@@ -46,6 +46,24 @@ template <typename t> inline void printt(const t & v) {
     } std::cout << '\n';
 }
 
+template <typename INT> INT gcd(INT a, INT b) { 
+    if (b == 0) return a; 
+    return gcd(b, a%b); 
+}
+
+template <typename INT> std::map<INT, int> factorize(INT n) { 
+    map<INT, int> mp; 
+    for (INT i = 2; i * i <= n; i++) { 
+        while (n % i == 0) { 
+            n /= i; 
+            mp[i] ++;
+        }
+    }
+
+    if (n > 1) mp[n] += 1;
+    return mp;
+}
+
 ll bin_pow(ll a, ll b) {
     if (b == 0) return 1;
     long long res = bin_pow(a, b / 2);
