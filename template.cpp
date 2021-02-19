@@ -1,6 +1,6 @@
 //THINK ALOUD !! 
 #include <bits/stdc++.h>
-#define debug1(x) cout << " -> [ " << #x << " = " << x << "]\n" 
+#define debug(x) cout << " -> [ " << #x << " = " << x << "]\n" 
 #define debug2(x, y) cout << " -> [ " << #x << " = " << x << " , " << #y << " = " << y << " ]\n"
 #define debug3(x, y, z) cout << " -> [ " << #x << " = " << x << " , " << #y << " = " << y << " , " << #z << " = " << z << " ]\n";
 #define debug4(x, y, z, xx) cout << " -> [ " << #x << " = " << x << " , " << #y << " = " << y << " , " << #z << " = " << z << " , " << #xx << " = " << xx << " ]\n";
@@ -76,6 +76,7 @@ int digit(ll i) {
 }
 
 vector<bool> isPrime(primeSize, true);
+vector<int> arePrimes;
 void make_seive() { 
     isPrime[0] = false; 
     isPrime[1] = false; 
@@ -85,6 +86,12 @@ void make_seive() {
             for (int j = i * 2; j <= primeSize; j += i) { 
                 isPrime[j] = false; 
             }
+        }
+    }
+
+    for (int i = 2; i < primeSize; i++) { 
+        if (isPrime[i]) { 
+            arePrimes.push_back(i); 
         }
     }
 }
@@ -97,6 +104,7 @@ void solve() {
 int main() { 
     fast; 
     int t = 1;
+    //make_seive();
     //cin >> t;
     while (t--) 
         solve(); 
