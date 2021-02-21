@@ -71,7 +71,7 @@ ll bin_pow(ll a, ll b) {
     else return res * res;
 }
 
-int digit(ll i) { 
+int totalDigits(ll i) { 
     return i > 0 ? (int) log10 ((double) i) + 1 : 1;
 }
 
