@@ -3,11 +3,11 @@ set t_Co=256
 syntax on
 filetype off
 filetype plugin indent on
-set ttyfast
+set ttyfast "helps in fast scrolling of screen
 
 set relativenumber
 set showmode                    " always show what mode we're currently editing in
-set formatoptions-=cro                  " Stop newline continution of comments
+set formatoptions-=cro          " Stop newline continution of comments
 set nowrap                      " don't wrap lines
 set tags=tags
 set expandtab                   " expand tabs by default (overloadable per file type later)
@@ -21,21 +21,29 @@ set smartcase                   " ignore case if search pattern is all lowercase
 set timeout timeoutlen=200 ttimeoutlen=100
 set visualbell           " don't beep
 set noerrorbells         " don't beep
-set autowrite  "Save on buffer switch
+set autowrite           "Save on buffer switch
 set mouse=a
 
 """" Basic Behavior
 set encoding=utf-8      " set encoding to UTF-8 (default was "latin1")
 set wildmenu            " visual autocomplete for command menu
-set lazyredraw          " redraw screen only when we need to
+set wildmode=longest,list,full
+
+set lazyredraw          " redraw screen only when we need to, help in fast scrolling of screen
 set showmatch           " highlight matching parentheses / brackets [{()}]
-set laststatus=2        " always show statusline (even with only single window)
+
+""""" status line
+set laststatus=2        " enable the status line, if enabled then we can do futher tweaking by set statusline
+                        "for futher tweaking refer to https://shapeshed.com/vim-statuslines/
+                        "set laststatus=0       " to disable the status line 
+
 set showtabline=2                       " Always show tabs
 set cmdheight=2                         " More space for displaying messages
 
 """" for windows 
-set splitbelow                          " Horizontal splits will automatically be below
-set splitright                          " Vertical splits will automatically be to the right
+"set splitbelow                          " Horizontal splits will automatically be below
+"set splitright                          " Vertical splits will automatically be to the right
+
 " Use alt + hjkl to resize windows
 nnoremap <M-j>    :resize -2<CR>
 nnoremap <M-k>    :resize +2<CR>
@@ -52,9 +60,9 @@ nnoremap <C-l> <C-w>l
 """" Tab settings
 set softtabstop=4       " backspace after pressing <TAB> will remove up to this many spaces
 " TAB in general mode will move to text buffer
-nnoremap <TAB> :bnext<CR>
+"nnoremap <TAB> :bnext<CR>
 " SHIFT-TAB will go back
-nnoremap <S-TAB> :bprevious<CR>
+"nnoremap <S-TAB> :bprevious<CR>
 
 
 
@@ -96,7 +104,7 @@ Plug 'sheerun/vim-polyglot' "for js and python better hightlighting
 
 "for node js
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-let g:coc_global_extensions = ['coc-emmet', 'coc-css', 'coc-html', 'coc-json', 'coc-prettier', 'coc-tsserver']
+let g:coc_global_extensions = ['coc-emmet', 'coc-css', 'coc-html', 'coc-json', 'coc-prettier', 'coc-tsserver', 'coc-eslint']
 "for node js
 
 Plug 'leafgarland/typescript-vim'
@@ -117,6 +125,7 @@ endif
 syntax enable
 
 colorscheme dracula
+:highlight Comment ctermfg=green " to set comments in green colour
 
 let g:NERDTreeShowHidden = 1
 let g:NERDTreeMinimalUI = 1
@@ -128,17 +137,13 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 " Toggle
 nnoremap <silent> <C-b> :NERDTreeToggle<CR>
 
-" open new split panes to right and below
-set splitright
-set splitbelow
-" turn terminal to normal mode with escape
 tnoremap <Esc> <C-\><C-n>
 " start terminal in insert mode
 au BufEnter * if &buftype == 'terminal' | :startinsert | endif
 " open terminal on ctrl+n
 function! OpenTerminal()
   split term://fish
-  resize 10
+  resize 25
 endfunction
 nnoremap <c-n> :call OpenTerminal()<CR>
 
