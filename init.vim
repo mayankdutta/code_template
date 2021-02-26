@@ -5,6 +5,7 @@ filetype off
 filetype plugin indent on
 set ttyfast "helps in fast scrolling of screen
 
+set list                        "show trailing white space
 set relativenumber
 set showmode                    " always show what mode we're currently editing in
 set formatoptions-=cro          " Stop newline continution of comments
@@ -23,11 +24,20 @@ set visualbell           " don't beep
 set noerrorbells         " don't beep
 set autowrite           "Save on buffer switch
 set mouse=a
+"set clipboard=unnamed                                        " yank and paste with the system clipboard
+
+
+"""" Don't actually know what is this 
+set scrolloff=3                                              " show context above/below cursorline
+set shiftwidth=2                                             " normal mode indentation commands use 2 spaces
 
 """" Basic Behavior
 set encoding=utf-8      " set encoding to UTF-8 (default was "latin1")
+set wildignore=log/**,node_modules/**,target/**,tmp/**,*.rbc
 set wildmenu            " visual autocomplete for command menu
-set wildmode=longest,list,full
+set wildmode=longest,list,full "this is autocompletion menu
+" automatically rebalance windows on vim resize
+autocmd VimResized * :wincmd =
 
 set lazyredraw          " redraw screen only when we need to, help in fast scrolling of screen
 set showmatch           " highlight matching parentheses / brackets [{()}]
@@ -35,14 +45,15 @@ set showmatch           " highlight matching parentheses / brackets [{()}]
 """"" status line
 set laststatus=2        " enable the status line, if enabled then we can do futher tweaking by set statusline
                         "for futher tweaking refer to https://shapeshed.com/vim-statuslines/
-                        "set laststatus=0       " to disable the status line 
+"set laststatus=0       " to disable the status line 
 
-set showtabline=2                       " Always show tabs
-set cmdheight=2                         " More space for displaying messages
+"set showtabline=2                       " Always show tabs
+set showtabline=0                       " don't show the tabs
+set cmdheight=1                         " More space for displaying messages
 
 """" for windows 
-"set splitbelow                          " Horizontal splits will automatically be below
-"set splitright                          " Vertical splits will automatically be to the right
+set splitbelow                          " Horizontal splits will automatically be below
+set splitright                          " Vertical splits will automatically be to the right
 
 " Use alt + hjkl to resize windows
 nnoremap <M-j>    :resize -2<CR>
