@@ -19,3 +19,12 @@ unsigned int next_power_of2 (unsigned int v) {
     v++;
     return v; 
 }
+
+template<typename INT> bool oppositeSigns(INT x, INT y) { 
+    return ((x ^ y) < 0);  // True if x and y have opposite signs.
+    // source :: http://graphics.stanford.edu/~seander/bithacks.html
+}
+
+bool isPowerOfTwo(int n) { 
+    return (n & (n - 1) == 0); // note that 0 is considered incorrectly as power of 2
+}
