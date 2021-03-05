@@ -65,20 +65,20 @@ set splitright                          " Vertical splits will automatically be 
 " nnoremap <M-l>    :vertical resize +2<CR>
 
 " Better window navigation
-" nnoremap <C-h> <C-w>h
-" nnoremap <C-j> <C-w>j
-" nnoremap <C-k> <C-w>k
-" nnoremap <C-l> <C-w>l
+ nnoremap <C-h> <C-w>h
+ nnoremap <C-j> <C-w>j
+ nnoremap <C-k> <C-w>k
+ nnoremap <C-l> <C-w>l
 
-map <leader>h <Nop>
-map <leader>j <Nop>
-map <leader>k <Nop>
-map <leader>l <Nop>
+" map <leader>h <Nop>
+" map <leader>j <Nop>
+" map <leader>k <Nop>
+" map <leader>l <Nop>
 
-nnoremap <leader>h <C-w>h
-nnoremap <leader>j <C-w>j
-nnoremap <leader>k <C-w>k
-nnoremap <leader>l <C-w>l
+" nnoremap <leader>h <C-w>h
+" nnoremap <leader>j <C-w>j
+" nnoremap <leader>k <C-w>k
+" nnoremap <leader>l <C-w>l
 
 
 """" Tab settings
