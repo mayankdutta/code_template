@@ -70,6 +70,15 @@ template <typename INT> std::map<INT, int> factorize(INT n) {
     return mp;
 }
 
+void setIO(string name = "") { // name is nonempty for USACO file I/O
+	// ios_base::sync_with_stdio(0); cin.tie(0); // see Fast Input & Output
+	// alternatively, cin.tie(0)->sync_with_stdio(0);
+	if (sz(name)) {
+		freopen((name+".in").c_str(), "r", stdin); // see Input & Output
+		freopen((name+".out").c_str(), "w", stdout);
+	}
+}
+
 ll bin_pow(ll a, ll b) {
     if (b == 0) return 1;
     long long res = bin_pow(a, b / 2);
@@ -108,6 +117,7 @@ void solve() {
 }
 
 int main() { 
+    // setIO(); 
     fast; 
     int t = 1;
     //make_seive();
