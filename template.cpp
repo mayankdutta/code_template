@@ -24,7 +24,7 @@ using lld=long double;
 // #define y second
 #define fast std::ios_base::sync_with_stdio(0);std::cin.tie(0);std::cout.tie(0);
 
-
+#define INF (int)1e9 //for INT_MAX which still allows for INF+INF
 #define rep(i, a, n) for (ll i = a; i < n; i++)
 #define per(i, a, n) for (ll i = n-1; i >= a; i--)
 #define repp(i, a, n, p) for (ll i = a; i < n; i += p)
