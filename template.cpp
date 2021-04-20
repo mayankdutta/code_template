@@ -8,6 +8,7 @@
 using namespace std;
 using ll=long long int;
 using lld=long double;
+
 #define mp make_pair
 #define pb push_back
 #define accu accumulate
@@ -50,17 +51,17 @@ template<typename t> inline void printt(const t& v) {
 
 /* For printing Tree/Graph */
 template<typename t> inline void printd(const t& v) {
-  for (int i = 1; i <= v.size(); i++) {
-    std::cout << i << ": ";
-    for (const auto& j: v[i]) {
-      std::cout << j << ' ';
-    } std::cout << '\n';
-  }
+    for (int i = 1; i <= v.size(); i++) {
+        std::cout << i << ": ";
+        for (const auto& j: v[i]) {
+            std::cout << j << ' ';
+        } std::cout << '\n';
+    }
 }
 
 template <typename INT> INT GCD(INT a, INT b) {
-//     if (b == 0) return a;
-//     return gcd(b, a%b);
+    //     if (b == 0) return a;
+    //     return gcd(b, a%b);
     return b ? gcd(b, a%b) : a;
 }
 
@@ -83,12 +84,12 @@ template <typename INT> std::map<INT, int> factorize(INT n) {
 }
 
 void setIO(string name = "") { // name is nonempty for USACO file I/O
-	// ios_base::sync_with_stdio(0); cin.tie(0); // see Fast Input & Output
-	// alternatively, cin.tie(0)->sync_with_stdio(0);
-	if (!name.empty()) {
-		freopen((name+".in").c_str(), "r", stdin); // see Input & Output
-		freopen((name+".out").c_str(), "w", stdout);
-	}
+    // ios_base::sync_with_stdio(0); cin.tie(0); // see Fast Input & Output
+    // alternatively, cin.tie(0)->sync_with_stdio(0);
+    if (!name.empty()) {
+        freopen((name+".in").c_str(), "r", stdin); // see Input & Output
+        freopen((name+".out").c_str(), "w", stdout);
+    }
 }
 
 ll bin_pow(ll a, ll b) {
@@ -128,10 +129,10 @@ int main() {
     // make_seive();
     fast;
     int t = 1;
-    // cin >> t;
+    cin >> t;
     while (t--)
         solve();
-    cout << "Hello, World\n";
+    // cout << "Hello, World\n";
 }
 
 /*
@@ -140,12 +141,12 @@ Tips:
 */
 
 /*
-Build and running
-g++ --std=c++17 -Wall -Wextra -Wshadow -fsanitize=undefined -fsanitize=address FILE.cpp && ./a.out < in
+   Build and running
+   g++ --std=c++17 -Wall -Wextra -Wshadow -fsanitize=undefined -fsanitize=address FILE.cpp && ./a.out < in
 
-Naming
--for types (class/struct name) UpperCamelCase: Point, Info, SegTree
--functions and variable lowerCamelCase: someMethod, someVariable
--MACROS and constants all capital letters separated by _ : SOME_MACRO, MAX_N, MOD
+   Naming
+   -for types (class/struct name) UpperCamelCase: Point, Info, SegTree
+   -functions and variable lowerCamelCase: someMethod, someVariable
+   -MACROS and constants all capital letters separated by _ : SOME_MACRO, MAX_N, MOD
 
 */
