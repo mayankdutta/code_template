@@ -13,6 +13,20 @@ using lld=long double;
 #define pb push_back
 #define accu accumulate
 
+#define vi vector<int>
+#define vb vector<bool>
+#define vc vector<char>
+#define vd vector<double>
+#define vlld vector<long double>
+#define vll vector<long long int>
+
+#define vvi vector<vector<int>>
+#define vvb vector<vector<bool>>
+#define vvc vector<vector<char>>
+#define vvd vector<vector<double>>
+#define vvlld vector<vector<long double>>
+#define vvll vector<vector<long long int>>
+
 #define pll pair<ll, ll>
 #define pii pair<int, int>
 #define pci pair<char, int>
