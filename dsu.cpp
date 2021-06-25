@@ -7,7 +7,8 @@ class UnionFind {
     public:
 
     UnionFind (int N) { 
-        rank.resize (N, 0); 
+        /* dont resize till N, resize till 2e5 or whatever is the limit, few questions are giving runtime error. */
+        rank.resize (N, 0);  
         p.resize (N, 0); 
 
         for (int i=0; i<N; i++) p[i] = i; 
