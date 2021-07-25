@@ -8,8 +8,8 @@ class UnionFind {
 
     UnionFind (int N) { 
         /* dont resize till N, resize till 2e5 or whatever is the limit, few questions are giving runtime error. */
-        rank.resize (N, 0);  
-        p.resize (N, 0); 
+        rank.resize ((int)2e5, 0);  
+        p.resize ((int)2e5, 0); 
 
         for (int i=0; i<N; i++) p[i] = i; 
     }
