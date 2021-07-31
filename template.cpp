@@ -108,10 +108,10 @@ template <typename t> inline void printd(const t &v) {
 template <typename INT> INT GCD(INT a, INT b) {
   /* if (b == 0) return a; */
   /* return gcd(b, a%b); */
-  return b ? gcd(b, a % b) : a;
+  return b ? GCD(b, a % b) : a;
 }
 
-template <typename INT> INT LCM(INT a, INT b) { return a / gcd(a, b) * b; }
+template <typename INT> INT LCM(INT a, INT b) { return a / GCD(a, b) * b; }
 
 template <typename INT> std::map<INT, int> factorize(INT n) {
   map<INT, int> mp;
