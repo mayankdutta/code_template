@@ -74,35 +74,59 @@ using lld = long double;
 #define repp(i, a, n, p) for (ll i = a; i < n; i += p)
 #define all(c) (c).begin(), (c).end()
 #define lla(c) (c).rbegin(), (c).rend()
-#define print_arr(arr, n)                                                      \
-  for (int i = 0; i < n; i++)                                                  \
-    std::cout << arr[i] << ' ';                                                \
-  std::cout << '\n';
 #define mod 1000000007
 #define primeSize 2000000
 
-/* For printing 1-D array */
-template <typename t> inline void print(const t &v) {
-  for (const auto &i : v)
-    std::cout << i << " ";
-  std::cout << '\n';
-}
-
-/* For printing Pair*/
-template <typename t> inline void printt(const t &v) {
-  for (const auto &i : v)
-    std::cout << i.first << " " << i.second << '\n';
-  std::cout << '\n';
-}
-
-/* For printing Tree/Graph */
-template <typename t> inline void printd(const t &v) {
-  for (int i = 1; i <= v.size(); i++) {
-    std::cout << i << ": ";
-    for (const auto &j : v[i])
-      std::cout << j << ' ';
-    std::cout << '\n';
+/* To print vector, cout << {name_of_vector}*/
+template <typename T> ostream &operator<<(ostream &COUT, const vector<T> &v) {
+  COUT << "[";
+  for (int i = 0; i < (int)v.size(); ++i) {
+    if (i)
+      COUT << ", ";
+    COUT << v[i];
   }
+  COUT << "]\n";
+  return COUT;
+}
+
+/* To print set, cout << {name_of_set}*/
+template <typename T> ostream &operator<<(ostream &COUT, const set<T> &v) {
+  COUT << "{";
+  for (auto it : v) {
+    COUT << it;
+    if (it != *v.rbegin())
+      COUT << ", ";
+  }
+  COUT << "}\n";
+  return COUT;
+}
+
+/* To print map, cout << {name_of_map}*/
+template <typename T, typename S>
+ostream &operator<<(ostream &COUT, const map<T, S> &v) {
+  COUT << "{";
+  for (auto it : v) {
+    COUT << "(" << it.first << " : " << it.second << ")";
+    if (it != *v.rbegin())
+      COUT << ", ";
+  }
+  COUT << "}\n";
+  return COUT;
+}
+
+/* To print pair, cout << {name_of_pair}*/
+template <typename T, typename S>
+ostream &operator<<(ostream &COUT, const pair<T, S> &v) {
+  COUT << "(";
+  COUT << v.first << ", " << v.second << ")";
+  return COUT;
+}
+
+/* Reading vector */
+template <typename T> inline istream &operator>>(istream &CIN, vector<T> &a) {
+  for (auto &x : a)
+    CIN >> x;
+  return CIN;
 }
 
 template <typename INT> INT GCD(INT a, INT b) {
@@ -143,8 +167,7 @@ ll bin_pow(ll a, ll b) {
   long long res = bin_pow(a, b / 2);
   if (b % 2)
     return res * res * a;
-  else
-    return res * res;
+  return res * res;
 }
 
 int totalDigits(ll i) { return i > 0 ? (int)log10((double)i) + 1 : 1; }
