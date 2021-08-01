@@ -104,13 +104,13 @@ template <typename T> ostream &operator<<(ostream &COUT, const set<T> &v) {
 /* To print map, cout << {name_of_map}*/
 template <typename T, typename S>
 ostream &operator<<(ostream &COUT, const map<T, S> &v) {
-  COUT << "{";
+  COUT << "{\n";
   for (auto it : v) {
-    COUT << "(" << it.first << " : " << it.second << ")";
+    COUT << "    (" << it.first << " : " << it.second << ")";
     if (it != *v.rbegin())
-      COUT << ", ";
+      COUT << ",\n";
   }
-  COUT << "}\n";
+  COUT << "\n}\n";
   return COUT;
 }
 
