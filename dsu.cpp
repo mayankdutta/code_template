@@ -2,34 +2,34 @@
 #include <vector>
 
 class UnionFind {
-    std::vector <int> p;
-    std::vector <int> rank;
-    public:
+  std::vector<int> p;
+  std::vector<int> rank;
 
-    UnionFind (int N) { 
-        /* dont resize till N, resize till 2e5 or whatever is the limit, few questions are giving runtime error. */
-        rank.resize ((int)2e5, 0);  
-        p.resize ((int)2e5, 0); 
+public:
+  UnionFind(int N) {
+    /* dont resize till N, resize till 2e5 or whatever is the limit, few
+     * questions are giving runtime error. */
+    rank.resize((int)2e5, 0);
+    p.resize((int)2e5, 0);
 
-        for (int i=0; i<N; i++) p[i] = i; 
+    for (int i = 0; i < N; i++)
+      p[i] = i;
+  }
+
+  int findSet(int i) { return (p[i] == i) ? i : (p[i] = findSet(p[i])); }
+
+  bool isSameSet(int i, int j) { return findSet(i) == findSet(j); }
+
+  void unionSet(int i, int j) {
+    if (!isSameSet(i, j)) {
+      int x = findSet(i), y = findSet(j);
+      if (rank[x] > rank[y])
+        p[y] = x;
+      else {
+        p[x] = y;
+        if (rank[x] == rank[y])
+          rank[y]++;
+      }
     }
-
-    int findSet (int i) { 
-        return (p[i] == i) ? i : (p[i] = findSet (p[i])); 
-    }
-
-    bool isSameSet (int i, int j) { 
-        return findSet(i) == findSet(j); 
-    }
-
-    void unionSet (int i, int j) { 
-        if (!isSameSet (i, j)) {
-            int x = findSet (i), y = findSet (j); 
-            if (rank [x] > rank[y]) p[y] = x; 
-            else { 
-                p[x] = y; 
-                if (rank [x] == rank[y]) rank [y] ++; 
-            }
-        }
-    }
+  }
 };

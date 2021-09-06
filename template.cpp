@@ -89,31 +89,8 @@ template <typename T> ostream &operator<<(ostream &COUT, const vector<T> &v) {
   return COUT;
 }
 
-template <typename T> ostream &operator<<(ostream &COUT, const deque<T> &v) {
-  COUT << "[";
-  for (int i = 0; i < (int)v.size(); ++i) {
-    if (i)
-      COUT << ", ";
-    COUT << v[i];
-  }
-  COUT << "]\n";
-  return COUT;
-}
-
 /* To print set, cout << {name_of_set}*/
 template <typename T> ostream &operator<<(ostream &COUT, const set<T> &v) {
-  COUT << "{";
-  for (auto it : v) {
-    COUT << it;
-    if (it != *v.rbegin())
-      COUT << ", ";
-  }
-  COUT << "}\n";
-  return COUT;
-}
-
-/* To print set, cout << {name_of_set}*/
-template <typename T> ostream &operator<<(ostream &COUT, const multiset<T> &v) {
   COUT << "{";
   for (auto it : v) {
     COUT << it;
@@ -137,22 +114,11 @@ ostream &operator<<(ostream &COUT, const map<T, S> &v) {
   return COUT;
 }
 
-/* pairs  */
+/* To print pair, cout << {name_of_pair}*/
 template <typename T, typename S>
 ostream &operator<<(ostream &COUT, const pair<T, S> &v) {
   COUT << "(";
   COUT << v.first << ", " << v.second << ")";
-  return COUT;
-}
-
-template <typename T, typename S>
-ostream &operator<<(ostream &COUT, const vector<pair<T, S>> &arr) {
-  cout << "{ \n";
-  for (const auto &v : arr) {
-    COUT << "(";
-    COUT << v.first << ", " << v.second << ")\n";
-  }
-  COUT << "\n}\n";
   return COUT;
 }
 

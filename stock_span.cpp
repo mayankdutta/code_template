@@ -2,4 +2,4 @@
 #include <stack>
 #include <vector>
 
-using ll=long long int; 
+using ll = long long int;
