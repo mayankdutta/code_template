@@ -1,26 +1,29 @@
 /* THINK ALOUD !! */
 #include <algorithm>
+#include <cmath>
 #include <iostream>
 #include <map>
 #include <numeric>
 #include <queue>
 #include <set>
-#include <cmath>
 #include <stack>
 #include <vector>
 
-#define debug(x) cout << " -> [ " << #x << " = " << x << "]\n"
+#define debug(x) std::cout << " -> [ " << #x << " = " << x << "]\n"
 #define debug2(x, y)                                                           \
-  cout << " -> [ " << #x << " = " << x << " , " << #y << " = " << y << " ]\n"
+  std::cout << " -> [ " << #x << " = " << x << " , " << #y << " = " << y       \
+            << " ]\n"
 #define debug3(x, y, z)                                                        \
-  cout << " -> [ " << #x << " = " << x << " , " << #y << " = " << y << " , "   \
-       << #z << " = " << z << " ]\n";
+  std::cout << " -> [ " << #x << " = " << x << " , " << #y << " = " << y       \
+            << " , " << #z << " = " << z << " ]\n";
 #define debug4(x, y, z, xx)                                                    \
-  cout << " -> [ " << #x << " = " << x << " , " << #y << " = " << y << " , "   \
-       << #z << " = " << z << " , " << #xx << " = " << xx << " ]\n";
+  std::cout << " -> [ " << #x << " = " << x << " , " << #y << " = " << y       \
+            << " , " << #z << " = " << z << " , " << #xx << " = " << xx        \
+            << " ]\n";
 #define debug5(x, y, z, xx, yy)                                                \
-  cout << " -> [ " << #x << " = " << x << " , " << #y << " = " << y << " , "   \
-       << #z << " = " << z << " , " << #xx << " = " << xx < < < <              \
+  std::cout << " -> [ " << #x << " = " << x << " , " << #y << " = " << y       \
+            << " , " << #z << " = " << z << " , " << #xx << " = "              \
+            << xx < < < <                                                      \
       " , " << #yy < < < < " = " << yy << " ]\n";
 
 using namespace std;
@@ -38,15 +41,15 @@ using lld = long double;
 #define vlld std::vector<long double>
 #define vll std::vector<long long int>
 
-#define vvi std::vector<std::vector<int>>
-#define vvb std::vector<std::vector<bool>>
-#define vvc std::vector<std::vector<char>>
-#define vvd std::vector<std::vector<double>>
-#define vvlld std::vector<std::vector<long double>>
-#define vvll std::vector<std::vector<long long int>>
+#define vvi std::vector<vi>
+#define vvb std::vector<vb>
+#define vvc std::vector<vc>
+#define vvd std::vector<vd>
+#define vvlld std::vector<vlld>
+#define vvll std::vector<vll>
 
-#define pll std::pair<ll, ll>
 #define pii std::pair<int, int>
+#define pll std::pair<ll, ll>
 #define pci std::pair<char, int>
 #define pic std::pair<int, char>
 #define pls std::pair<ll, std::string>
@@ -54,14 +57,14 @@ using lld = long double;
 #define pis std::pair<int, std::string>
 #define psi std::pair<std::string, int>
 
-#define vpll std::vector<std::pair<ll, ll>>
-#define vpii std::vector<std::pair<int, int>>
-#define vpci std::vector<std::pair<char, int>>
-#define vpic std::vector<std::pair<int, char>>
-#define vpls std::vector<std::pair<ll, std::string>>
-#define vpsl std::vector<std::pair<std::string, ll>>
-#define vpis std::vector<std::pair<int, std::string>>
-#define vpsi std::vector<std::pair<std::string, int>>
+#define vpii std::vector<pii>
+#define vpll std::vector<pll>
+#define vpci std::vector<pci>
+#define vpic std::vector<pic>
+#define vpls std::vector<pls>
+#define vpsl std::vector<psl>
+#define vpis std::vector<pis>
+#define vpsi std::vector<psi>
 #define x first
 #define y second
 
@@ -69,17 +72,18 @@ using lld = long double;
   std::ios_base::sync_with_stdio(0);                                           \
   std::cin.tie(0);
 
-#define INF (int)1e9 // for INT_MAX which still allows for INF + INF
 #define rep(i, a, n) for (ll i = a; i < n; i++)
 #define per(i, a, n) for (ll i = n - 1; i >= a; i--)
 #define repp(i, a, n, p) for (ll i = a; i < n; i += p)
 #define all(c) (c).begin(), (c).end()
 #define lla(c) (c).rbegin(), (c).rend()
 #define mod 1000000007
-#define primeSize 2000000
+#define INF (long long int)1e18
+#define inf (int)1e9
 
 /* To print vector, cout << {name_of_vector}*/
-template <typename T> ostream &operator<<(ostream &COUT, const vector<T> &v) {
+template <typename T>
+ostream &operator<<(ostream &COUT, const std::vector<T> &v) {
   COUT << "[";
   for (int i = 0; i < (int)v.size(); ++i) {
     if (i)
@@ -90,7 +94,8 @@ template <typename T> ostream &operator<<(ostream &COUT, const vector<T> &v) {
   return COUT;
 }
 
-template <typename T> ostream &operator<<(ostream &COUT, const deque<T> &v) {
+template <typename T>
+ostream &operator<<(ostream &COUT, const std::deque<T> &v) {
   COUT << "[";
   for (int i = 0; i < (int)v.size(); ++i) {
     if (i)
@@ -102,7 +107,7 @@ template <typename T> ostream &operator<<(ostream &COUT, const deque<T> &v) {
 }
 
 /* To print set, cout << {name_of_set}*/
-template <typename T> ostream &operator<<(ostream &COUT, const set<T> &v) {
+template <typename T> ostream &operator<<(ostream &COUT, const std::set<T> &v) {
   COUT << "{";
   for (auto it : v) {
     COUT << it;
@@ -113,7 +118,8 @@ template <typename T> ostream &operator<<(ostream &COUT, const set<T> &v) {
   return COUT;
 }
 
-template <typename T> ostream &operator<<(ostream &COUT, const multiset<T> &v) {
+template <typename T>
+ostream &operator<<(ostream &COUT, const std::multiset<T> &v) {
   COUT << "{";
   for (auto it : v) {
     COUT << it;
@@ -126,7 +132,7 @@ template <typename T> ostream &operator<<(ostream &COUT, const multiset<T> &v) {
 
 /* To print map, cout << {name_of_map}*/
 template <typename T, typename S>
-ostream &operator<<(ostream &COUT, const map<T, S> &v) {
+ostream &operator<<(ostream &COUT, const std::map<T, S> &v) {
   COUT << "{\n";
   for (auto it : v) {
     COUT << "    (" << it.first << " : " << it.second << ")";
@@ -139,7 +145,7 @@ ostream &operator<<(ostream &COUT, const map<T, S> &v) {
 
 /* To print pair, cout << {name_of_pair}*/
 template <typename T, typename S>
-ostream &operator<<(ostream &COUT, const pair<T, S> &v) {
+ostream &operator<<(ostream &COUT, const std::pair<T, S> &v) {
   COUT << "(";
   COUT << v.first << ", " << v.second << ")";
   return COUT;
@@ -159,7 +165,8 @@ ostream &operator<<(ostream &COUT, const std::vector<std::pair<T, S>> &arr) {
 }
 
 /* Reading vector */
-template <typename T> inline istream &operator>>(istream &CIN, vector<T> &a) {
+template <typename T>
+inline istream &operator>>(istream &CIN, std::vector<T> &a) {
   for (auto &x : a)
     CIN >> x;
   return CIN;
@@ -207,6 +214,8 @@ ll bin_pow(ll a, ll b) {
 }
 
 int totalDigits(ll i) { return i > 0 ? (int)log10((double)i) + 1 : 1; }
+
+#define primeSize 2000000
 
 vector<bool> isPrime(primeSize, true);
 vector<int> arePrimes;
