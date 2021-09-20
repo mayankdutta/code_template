@@ -2,34 +2,79 @@
 #include <vector>
 
 class UnionFind {
-  std::vector<int> p;
-  std::vector<int> rank;
-
 public:
-  UnionFind(int N) {
-    /* dont resize till N, resize till 2e5 or whatever is the limit, few
-     * questions are giving runtime error. */
-    rank.resize((int)2e5, 0);
-    p.resize((int)2e5, 0);
+  std::vector<int> Parent;
+  std::vector<int> Size;
 
-    for (int i = 0; i < N; i++)
-      p[i] = i;
+  void init(int n) {
+    /* You may want to change the size. */
+    Size.resize(int(3e5) + 5, 1);
+    Parent.resize(int(3e5) + 5, 0);
+
+    for (int i = 0; i < n; i++)
+      Parent[i] = i;
   }
 
-  int findSet(int i) { return (p[i] == i) ? i : (p[i] = findSet(p[i])); }
+  void makeSet(int n) {
+    Parent[n] = n;
+    Size[n] = 1;
+  }
+
+  int findSet(int i) {
+    return (Parent[i] == i) ? i : (Parent[i] = findSet(Parent[i]));
+  }
 
   bool isSameSet(int i, int j) { return findSet(i) == findSet(j); }
 
-  void unionSet(int i, int j) {
-    if (!isSameSet(i, j)) {
-      int x = findSet(i), y = findSet(j);
-      if (rank[x] > rank[y])
-        p[y] = x;
-      else {
-        p[x] = y;
-        if (rank[x] == rank[y])
-          rank[y]++;
-      }
-    }
+  void unionSet(int a, int b) {
+    a = findSet(a);
+    b = findSet(b);
+    if (a == b)
+      return;
+    if (Size[a] < Size[b])
+      std::swap(a, b);
+
+    Parent[b] = a;
+    Size[a] += Size[b];
   }
-};
+} dsu;
+
+class UnionFindSlow {
+public:
+  std::vector<int> Parent;
+  std::vector<int> Size;
+
+  void init(int n) {
+    /* You may want to change the size. */
+    Size.resize(int(3e5) + 5, 1);
+    Parent.resize(int(3e5) + 5, 0);
+
+    for (int i = 0; i < n; i++)
+      Parent[i] = i;
+  }
+
+  void makeSet(int n) {
+    Parent[n] = n;
+    Size[n] = 1;
+  }
+
+  int findSet(int v) {
+    if (v == Parent[v])
+      return v;
+    return findSet(Parent[v]);
+  }
+
+  bool isSameSet(int i, int j) { return findSet(i) == findSet(j); }
+
+  void unionSet(int a, int b) {
+    a = findSet(a);
+    b = findSet(b);
+    if (a == b)
+      return;
+    if (Size[a] < Size[b])
+      std::swap(a, b);
+
+    Parent[b] = a;
+    Size[a] += Size[b];
+  }
+} sdsu;
