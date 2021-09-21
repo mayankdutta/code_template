@@ -58,11 +58,7 @@ public:
     Size[n] = 1;
   }
 
-  int findSet(int v) {
-    if (v == Parent[v])
-      return v;
-    return findSet(Parent[v]);
-  }
+  int findSet(int v) { return (v == Parent[v] ? v : findSet(Parent[v])); }
 
   bool isSameSet(int i, int j) { return findSet(i) == findSet(j); }
 
