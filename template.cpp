@@ -9,19 +9,19 @@
 #include <stack>
 #include <vector>
 
-#define debug(x) std::cout << " -> [ " << #x << " = " << x << "]\n"
+#define debug(x) std::cerr << " -> [ " << #x << " = " << x << "]\n"
 #define debug2(x, y)                                                           \
-  std::cout << " -> [ " << #x << " = " << x << " , " << #y << " = " << y       \
+  std::cerr << " -> [ " << #x << " = " << x << " , " << #y << " = " << y       \
             << " ]\n"
 #define debug3(x, y, z)                                                        \
-  std::cout << " -> [ " << #x << " = " << x << " , " << #y << " = " << y       \
+  std::cerr << " -> [ " << #x << " = " << x << " , " << #y << " = " << y       \
             << " , " << #z << " = " << z << " ]\n";
 #define debug4(x, y, z, xx)                                                    \
-  std::cout << " -> [ " << #x << " = " << x << " , " << #y << " = " << y       \
+  std::cerr << " -> [ " << #x << " = " << x << " , " << #y << " = " << y       \
             << " , " << #z << " = " << z << " , " << #xx << " = " << xx        \
             << " ]\n";
 #define debug5(x, y, z, xx, yy)                                                \
-  std::cout << " -> [ " << #x << " = " << x << " , " << #y << " = " << y       \
+  std::cerr << " -> [ " << #x << " = " << x << " , " << #y << " = " << y       \
             << " , " << #z << " = " << z << " , " << #xx << " = "              \
             << xx < < < <                                                      \
       " , " << #yy < < < < " = " << yy << " ]\n";
@@ -30,41 +30,50 @@ using namespace std;
 using ll = long long int;
 using lld = long double;
 
-#define mp make_pair
+using vi = std::vector<int>;
+using vb = std::vector<bool>;
+using vc = std::vector<char>;
+using vd = std::vector<double>;
+using vlld = std::vector<lld>;
+using vll = std::vector<ll>;
+
+using vvi = std::vector<vi>;
+using vvb = std::vector<vb>;
+using vvc = std::vector<vc>;
+using vvd = std::vector<vd>;
+using vvlld = std::vector<vlld>;
+using vvll = std::vector<vll>;
+
+using pii = std::pair<int, int>;
+using pll = std::pair<ll, ll>;
+using pci = std::pair<char, int>;
+using pic = std::pair<int, char>;
+using pls = std::pair<ll, std::string>;
+using psl = std::pair<std::string, ll>;
+using pis = std::pair<int, std::string>;
+using psi = std::pair<std::string, int>;
+
+using vpii = std::vector<pii>;
+using vpll = std::vector<pll>;
+using vpci = std::vector<pci>;
+using vpic = std::vector<pic>;
+using vpls = std::vector<pls>;
+using vpsl = std::vector<psl>;
+using vpis = std::vector<pis>;
+using vpsi = std::vector<psi>;
+
+using vvpii = std::vector<vpii>;
+using vvpll = std::vector<vpll>;
+using vvpci = std::vector<vpci>;
+using vvpic = std::vector<vpic>;
+using vvpls = std::vector<vpls>;
+using vvpsl = std::vector<vpsl>;
+using vvpis = std::vector<vpis>;
+using vvpsi = std::vector<vpsi>;
+
 #define pb push_back
 #define accu accumulate
 
-#define vi std::vector<int>
-#define vb std::vector<bool>
-#define vc std::vector<char>
-#define vd std::vector<double>
-#define vlld std::vector<long double>
-#define vll std::vector<long long int>
-
-#define vvi std::vector<vi>
-#define vvb std::vector<vb>
-#define vvc std::vector<vc>
-#define vvd std::vector<vd>
-#define vvlld std::vector<vlld>
-#define vvll std::vector<vll>
-
-#define pii std::pair<int, int>
-#define pll std::pair<ll, ll>
-#define pci std::pair<char, int>
-#define pic std::pair<int, char>
-#define pls std::pair<ll, std::string>
-#define psl std::pair<std::string, ll>
-#define pis std::pair<int, std::string>
-#define psi std::pair<std::string, int>
-
-#define vpii std::vector<pii>
-#define vpll std::vector<pll>
-#define vpci std::vector<pci>
-#define vpic std::vector<pic>
-#define vpls std::vector<pls>
-#define vpsl std::vector<psl>
-#define vpis std::vector<pis>
-#define vpsi std::vector<psi>
 #define x first
 #define y second
 
