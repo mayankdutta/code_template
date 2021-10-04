@@ -36,13 +36,16 @@ void lis() {
     cin >> i;
 
   vector<int> trackNum, trackIndex, parent(2 * arr.size(), 0);
+  int lis_end = 0; // to track upto where parent is filled.
 
   for (int i = 0; i < n; ++i) {
+    /* for strictly inc sequence use lower_bound */
     int pos = upper_bound(trackNum.begin(), trackNum.end(), arr[i]) -
               trackNum.begin();
     if (pos >= trackNum.size()) {
       trackNum.push_back(arr[i]);
       trackIndex.push_back(i);
+      lis_end = max(lis_end, i);
     } else {
       trackNum[pos] = arr[i];
       trackIndex[pos] = i;
@@ -59,9 +62,7 @@ void lis() {
 
   /* printf("Final LIS is of length %d: ", trackNum.size()); */
   cout << trackNum.size() << '\n';
-  /* reconstruct_print(arr.size() - 1, arr, parent); */
+  /* reconstruct_print(lis_end, arr, parent); */
 }
 
-int main() { 
-  lis();
-}
+int main() { lis(); }
