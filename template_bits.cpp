@@ -8,7 +8,7 @@ unsigned long bin_to_dec(std::string s) {
   return decimal;
 }
 
-unsigned int next_power_of2(unsigned int v) {
+unsigned int next_power_of_2(unsigned int v) {
   //    unsigned int v; // compute the next highest power of 2 of 32-bit v
   v--;
   v |= v >> 1;
