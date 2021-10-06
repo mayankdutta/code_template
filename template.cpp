@@ -9,67 +9,71 @@
 #include <stack>
 #include <vector>
 
-#define debug(x) std::cerr << " -> [ " << #x << " = " << x << "]\n"
+#define debug(x) std::cout << " -> [ " << #x << " = " << x << "]\n"
 #define debug2(x, y)                                                           \
-  std::cerr << " -> [ " << #x << " = " << x << " , " << #y << " = " << y       \
+  std::cout << " -> [ " << #x << " = " << x << " , " << #y << " = " << y       \
             << " ]\n"
 #define debug3(x, y, z)                                                        \
-  std::cerr << " -> [ " << #x << " = " << x << " , " << #y << " = " << y       \
+  std::cout << " -> [ " << #x << " = " << x << " , " << #y << " = " << y       \
             << " , " << #z << " = " << z << " ]\n";
-#define debug4(x, y, z, xx)                                                    \
-  std::cerr << " -> [ " << #x << " = " << x << " , " << #y << " = " << y       \
-            << " , " << #z << " = " << z << " , " << #xx << " = " << xx        \
+#define debug4(x, y, z, a)                                                     \
+  std::cout << " -> [ " << #x << " = " << x << " , " << #y << " = " << y       \
+            << " , " << #z << " = " << z << " , " << #a << " = " << a          \
             << " ]\n";
-#define debug5(x, y, z, xx, yy)                                                \
-  std::cerr << " -> [ " << #x << " = " << x << " , " << #y << " = " << y       \
-            << " , " << #z << " = " << z << " , " << #xx << " = "              \
-            << xx < < < <                                                      \
-      " , " << #yy < < < < " = " << yy << " ]\n";
+#define debug5(x, y, z, a, b)                                                  \
+  std::cout << " -> [ " << #x << " = " << x << " , " << #y << " = " << y       \
+            << " , " << #z << " = " << z << " , " << #a << " = " << a << " , " \
+            << #b << " = " << b << " ]\n";
+#define debug6(x, y, z, a, b, c)                                               \
+  std::cout << " -> [ " << #x << " = " << x << " , " << #y << " = " << y       \
+            << " , " << #z << " = " << z << " , " << #a << " = " << a << " , " \
+            << #b << " = " << b << " , " << #c << " = " << c << " ]\n";
 
 using namespace std;
-using ll = long long int;
-using lld = long double;
 
-using vi = std::vector<int>;
-using vb = std::vector<bool>;
-using vc = std::vector<char>;
-using vd = std::vector<double>;
-using vlld = std::vector<lld>;
-using vll = std::vector<ll>;
+#define ll long long int
+#define lld long double
 
-using vvi = std::vector<vi>;
-using vvb = std::vector<vb>;
-using vvc = std::vector<vc>;
-using vvd = std::vector<vd>;
-using vvlld = std::vector<vlld>;
-using vvll = std::vector<vll>;
+#define vi std::vector<int>
+#define vb std::vector<bool>
+#define vc std::vector<char>
+#define vd std::vector<double>
+#define vlld std::vector<lld>
+#define vll std::vector<ll>
 
-using pii = std::pair<int, int>;
-using pll = std::pair<ll, ll>;
-using pci = std::pair<char, int>;
-using pic = std::pair<int, char>;
-using pls = std::pair<ll, std::string>;
-using psl = std::pair<std::string, ll>;
-using pis = std::pair<int, std::string>;
-using psi = std::pair<std::string, int>;
+#define vvi std::vector<vi>
+#define vvb std::vector<vb>
+#define vvc std::vector<vc>
+#define vvd std::vector<vd>
+#define vvlld std::vector<vlld>
+#define vvll std::vector<vll>
 
-using vpii = std::vector<pii>;
-using vpll = std::vector<pll>;
-using vpci = std::vector<pci>;
-using vpic = std::vector<pic>;
-using vpls = std::vector<pls>;
-using vpsl = std::vector<psl>;
-using vpis = std::vector<pis>;
-using vpsi = std::vector<psi>;
+#define pii = std::pair<int, int>
+#define pll = std::pair<ll, ll>
+#define pci = std::pair<char, int>
+#define pic = std::pair<int, char>
+#define pls = std::pair<ll, std::string>
+#define psl = std::pair<std::string, ll>
+#define pis = std::pair<int, std::string>
+#define psi = std::pair<std::string, int>
 
-using vvpii = std::vector<vpii>;
-using vvpll = std::vector<vpll>;
-using vvpci = std::vector<vpci>;
-using vvpic = std::vector<vpic>;
-using vvpls = std::vector<vpls>;
-using vvpsl = std::vector<vpsl>;
-using vvpis = std::vector<vpis>;
-using vvpsi = std::vector<vpsi>;
+#define vpii = std::vector<pii>
+#define vpll = std::vector<pll>
+#define vpci = std::vector<pci>
+#define vpic = std::vector<pic>
+#define vpls = std::vector<pls>
+#define vpsl = std::vector<psl>
+#define vpis = std::vector<pis>
+#define vpsi = std::vector<psi>
+
+#define vvpii = std::vector<vpii>
+#define vvpll = std::vector<vpll>
+#define vvpci = std::vector<vpci>
+#define vvpic = std::vector<vpic>
+#define vvpls = std::vector<vpls>
+#define vvpsl = std::vector<vpsl>
+#define vvpis = std::vector<vpis>
+#define vvpsi = std::vector<vpsi>
 
 #define pb push_back
 #define accu accumulate
@@ -203,16 +207,6 @@ template <typename INT> std::map<INT, int> factorize(INT n) {
   return mp;
 }
 
-void setIO(std::string name = "") {
-  /* name is nonempty for USACO file I/O */
-  /* ios_base::sync_with_stdio(0); cin.tie(0); // see Fast Input & Output */
-  /* alternatively, cin.tie(0)->sync_with_stdio(0); */
-  if (!name.empty()) {
-    freopen((name + ".in").c_str(), "r", stdin); // see Input & Output
-    freopen((name + ".out").c_str(), "w", stdout);
-  }
-}
-
 ll bin_pow(ll a, ll b) {
   if (b == 0)
     return 1;
@@ -241,27 +235,69 @@ void make_seive() {
     if (isPrime[i])
       arePrimes.push_back(i);
 }
+void initiate(std::string name = "") {
+  fast;
+  /* make_seive(); */
+  if (!name.empty()) {
+    freopen((name + ".in").c_str(), "r", stdin); // see Input & Output
+    freopen((name + ".out").c_str(), "w", stdout);
+  }
+}
+
+class UnionFind {
+public:
+  std::vector<int> Parent;
+  std::vector<int> Size;
+
+  void init(int n) {
+    /* You may want to change the size. */
+    Size.resize(int(3e5) + 5, 1);
+    Parent.resize(int(3e5) + 5, 0);
+
+    for (int i = 0; i < n; i++)
+      Parent[i] = i;
+  }
+
+  void makeSet(int n) {
+    Parent[n] = n;
+    Size[n] = 1;
+  }
+
+  int findSet(int i) {
+    return (Parent[i] == i) ? i : (Parent[i] = findSet(Parent[i]));
+  }
+
+  bool isSameSet(int i, int j) { return findSet(i) == findSet(j); }
+
+  void unionSet(int a, int b) {
+    a = findSet(a);
+    b = findSet(b);
+    if (a == b)
+      return;
+    if (Size[a] < Size[b])
+      std::swap(a, b);
+
+    Parent[b] = a;
+    Size[a] += Size[b];
+  }
+} dsu;
 
 void solve() {}
 
 int main() {
-  /* setIO(); */
-  /* make_seive(); */
-  fast;
+  initiate();
   int t = 1;
   cin >> t;
   while (t--)
     solve();
-  /* cout << "Hello, World\n"; */
+  cout << "Hello, World\n";
 }
 
 /*
 Tips:
--- for queries involving sum using queue or minimum sum of size k, do also
-consider prefix sum.
-*/
+   -- for queries involving sum using queue or minimum sum of size k, do also
+   consider prefix sum.
 
-/*
    Build and running
    g++ --std=c++17 -Wall -Wextra -Wshadow -fsanitize=undefined
    -fsanitize=address FILE.cpp && ./a.out < in
