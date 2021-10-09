@@ -48,32 +48,32 @@ using namespace std;
 #define vvlld std::vector<vlld>
 #define vvll std::vector<vll>
 
-#define pii = std::pair<int, int>
-#define pll = std::pair<ll, ll>
-#define pci = std::pair<char, int>
-#define pic = std::pair<int, char>
-#define pls = std::pair<ll, std::string>
-#define psl = std::pair<std::string, ll>
-#define pis = std::pair<int, std::string>
-#define psi = std::pair<std::string, int>
+#define pii std::pair<int, int>
+#define pll std::pair<ll, ll>
+#define pci std::pair<char, int>
+#define pic std::pair<int, char>
+#define pls std::pair<ll, std::string>
+#define psl std::pair<std::string, ll>
+#define pis std::pair<int, std::string>
+#define psi std::pair<std::string, int>
 
-#define vpii = std::vector<pii>
-#define vpll = std::vector<pll>
-#define vpci = std::vector<pci>
-#define vpic = std::vector<pic>
-#define vpls = std::vector<pls>
-#define vpsl = std::vector<psl>
-#define vpis = std::vector<pis>
-#define vpsi = std::vector<psi>
+#define vpii std::vector<pii>
+#define vpll std::vector<pll>
+#define vpci std::vector<pci>
+#define vpic std::vector<pic>
+#define vpls std::vector<pls>
+#define vpsl std::vector<psl>
+#define vpis std::vector<pis>
+#define vpsi std::vector<psi>
 
-#define vvpii = std::vector<vpii>
-#define vvpll = std::vector<vpll>
-#define vvpci = std::vector<vpci>
-#define vvpic = std::vector<vpic>
-#define vvpls = std::vector<vpls>
-#define vvpsl = std::vector<vpsl>
-#define vvpis = std::vector<vpis>
-#define vvpsi = std::vector<vpsi>
+#define vvpii std::vector<vpii>
+#define vvpll std::vector<vpll>
+#define vvpci std::vector<vpci>
+#define vvpic std::vector<vpic>
+#define vvpls std::vector<vpls>
+#define vvpsl std::vector<vpsl>
+#define vvpis std::vector<vpis>
+#define vvpsi std::vector<vpsi>
 
 #define pb push_back
 #define accu accumulate
