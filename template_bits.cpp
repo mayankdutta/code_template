@@ -29,3 +29,12 @@ bool isPowerOfTwo(int n) {
   return (((n) & (n - 1)) ==
           0); // note that 0 is considered incorrectly as power of 2
 }
+
+void printBinary(int n) {
+  for (int i = 10; i >= 0; i--) { // to set the limit of bit size you want on screen.
+    printf("%d", ((n >> i) & 1));
+  }
+  printf("\n");
+}
+
+  
