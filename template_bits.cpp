@@ -44,5 +44,20 @@ bool isLower(char ch) { return ((ch >> 5 & 1) == 1); }
 char toLower(char ch) { return (ch | (1 << 5)); }
 char toUpper(char ch) { return (ch & (~(1 << 5))); }
 bool isUpper(char ch) { return (ch >> 5 & 1) == 0; }
+int clearLSB(const int &n, const int &i) {
+  /*
+   * Given 111011
+   * we wish to clear LSB until 4th
+   * we picked 1
+   * moved to 5th place
+   * 10000
+   * 10000 being power of 2
+   * minus 1 -> 1111
+   * or 00001111
+   * negate it
+   * 11110000
+   * and take the &
+   */
+  return (n & (~((1 << (i + 1)) - 1)));
+}
 
-  
