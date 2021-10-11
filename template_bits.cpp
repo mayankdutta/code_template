@@ -11,7 +11,7 @@ unsigned long bin_to_dec(std::string s) {
 unsigned int next_power_of_2(unsigned int v) {
   //    unsigned int v; // compute the next highest power of 2 of 32-bit v
   v--;
-  v |= v >> 1;
+  v |= v >> 1;  // v >> 2 means, v/4, shifting rightward twice, 1000100 -> 10001
   v |= v >> 2;
   v |= v >> 4;
   v |= v >> 8;
