@@ -37,4 +37,12 @@ void printBinary(int n) {
   printf("\n");
 }
 
+// There was a 1 @5th place in ch, i bought that damn One @rightmost point and
+// then took AND,
+// note that, ((ch & (1 << 5))) wont work, cauz how will it will be equal to 1
+bool isLower(char ch) { return ((ch >> 5 & 1) == 1); }
+char toLower(char ch) { return (ch | (1 << 5)); }
+char toUpper(char ch) { return (ch & (~(1 << 5))); }
+bool isUpper(char ch) { return (ch >> 5 & 1) == 0; }
+
   
