@@ -1,5 +1,6 @@
 /* THINK ALOUD !! */
 #include <algorithm>
+#include <chrono>
 #include <cmath>
 #include <iostream>
 #include <map>
@@ -8,6 +9,8 @@
 #include <set>
 #include <stack>
 #include <vector>
+
+// #include <bits/stdc++.h>
 
 #define debug(x) std::cout << " -> [ " << #x << " = " << x << "]\n"
 #define debug2(x, y)                                                           \
@@ -30,6 +33,7 @@
             << #b << " = " << b << " , " << #c << " = " << c << " ]\n";
 
 using namespace std;
+using namespace std::chrono;
 
 #define ll long long int
 #define lld long double
@@ -285,12 +289,19 @@ public:
 void solve() {}
 
 int main() {
+  auto start = high_resolution_clock::now();
+
   initiate();
   int t = 1;
   cin >> t;
   while (t--)
     solve();
-  cout << "Hello, World\n";
+
+  auto stop = high_resolution_clock::now();
+  auto duration = duration_cast<microseconds>(stop - start);
+
+  cerr << "Time taken by function: " << ceil(duration.count() / 1000.0)
+       << " milliseconds" << '\n';
 }
 
 /*
