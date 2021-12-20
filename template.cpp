@@ -1,6 +1,8 @@
 /* THINK ALOUD !! */
 #include <algorithm>
+// #include <bits/stdc++.h>
 #include <chrono>
+#include <climits>
 #include <cmath>
 #include <iostream>
 #include <map>
@@ -9,8 +11,6 @@
 #include <set>
 #include <stack>
 #include <vector>
-
-// #include <bits/stdc++.h>
 
 #define debug(x) std::cout << " -> [ " << #x << " = " << x << "]\n"
 #define debug2(x, y)                                                           \
@@ -294,8 +294,9 @@ int main() {
   initiate();
   int t = 1;
   cin >> t;
-  while (t--)
+  for (int i = 1; i <= t; i++) {
     solve();
+  }
 
   auto stop = high_resolution_clock::now();
   auto duration = duration_cast<microseconds>(stop - start);
