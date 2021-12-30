@@ -4,6 +4,8 @@
 #include <chrono>
 #include <climits>
 #include <cmath>
+
+#include <functional>
 #include <iostream>
 #include <map>
 #include <numeric>
@@ -34,6 +36,48 @@
 
 using namespace std;
 using namespace std::chrono;
+
+#include <ext/pb_ds/assoc_container.hpp>
+#include <ext/pb_ds/tree_policy.hpp>
+
+using namespace __gnu_pbds;
+
+/*
+ * null_type means we wish to use set, if we want to use map, use mapped_type
+ *
+ * less : It is the basis for comparison of two functions.
+ *
+ * rb_tree_tag: type of tree used, here it is red black tree.
+ *
+ * tree_order_statistics_node__update : It is included in tree_policy.hpp and
+ * contains various operations for updating the node variants of a tree-based
+ * container, so we can keep track of metadata like the number of nodes in a
+ * subtree
+ */
+
+/*
+ * ADDITIONAL FUNCTION
+ * find_by_order(k): returns iterator to the kth element
+ *
+ * order_of_key(k) : returns number of items that are strictly smaller
+ * than our item k.
+ */
+
+template <class INT>
+using ordered_set = tree<INT, null_type, std::less<INT>, rb_tree_tag,
+                         tree_order_statistics_node_update>;
+
+template <class INT>
+using rordered_set = tree<INT, null_type, std::greater<INT>, rb_tree_tag,
+                          tree_order_statistics_node_update>;
+
+template <class INT>
+using multi_ordered_set = tree<INT, null_type, std::less_equal<INT>,
+                               rb_tree_tag, tree_order_statistics_node_update>;
+
+template <class INT>
+using rmulti_ordered_set = tree<INT, null_type, std::greater_equal<INT>,
+                                rb_tree_tag, tree_order_statistics_node_update>;
 
 #define ll long long int
 #define lld long double
@@ -183,8 +227,8 @@ ostream &operator<<(ostream &COUT, const std::vector<std::pair<T, S>> &arr) {
 
 /* Reading vector */
 template <typename T>
-inline istream &operator>>(istream &CIN, std::vector<T> &a) {
-  for (auto &x : a)
+inline istream &operator>>(istream &CIN, std::vector<T> &arr) {
+  for (auto &x : arr)
     CIN >> x;
   return CIN;
 }
@@ -220,7 +264,7 @@ ll bin_pow(ll a, ll b) {
   return res * res;
 }
 
-int totalDigits(ll i) { return i > 0 ? (int)log10((double)i) + 1 : 1; }
+int digits(ll i) { return i > 0 ? (int)log10((double)i) + 1 : 1; }
 
 #define primeSize 2000000
 
@@ -293,7 +337,7 @@ int main() {
 
   initiate();
   int t = 1;
-  cin >> t;
+  // cin >> t;
   for (int i = 1; i <= t; i++) {
     solve();
   }
