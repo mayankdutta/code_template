@@ -37,47 +37,49 @@
 using namespace std;
 using namespace std::chrono;
 
-#include <ext/pb_ds/assoc_container.hpp>
-#include <ext/pb_ds/tree_policy.hpp>
+// #include <ext/pb_ds/assoc_container.hpp>
+// #include <ext/pb_ds/tree_policy.hpp>
 
-using namespace __gnu_pbds;
+// using namespace __gnu_pbds;
 
-/*
- * null_type means we wish to use set, if we want to use map, use mapped_type
- *
- * less : It is the basis for comparison of two functions.
- *
- * rb_tree_tag: type of tree used, here it is red black tree.
- *
- * tree_order_statistics_node__update : It is included in tree_policy.hpp and
- * contains various operations for updating the node variants of a tree-based
- * container, so we can keep track of metadata like the number of nodes in a
- * subtree
- */
+// /*
+//  * null_type means we wish to use set, if we want to use map, use mapped_type
+//  *
+//  * less : It is the basis for comparison of two functions.
+//  *
+//  * rb_tree_tag: type of tree used, here it is red black tree.
+//  *
+//  * tree_order_statistics_node__update : It is included in tree_policy.hpp and
+//  * contains various operations for updating the node variants of a tree-based
+//  * container, so we can keep track of metadata like the number of nodes in a
+//  * subtree
+//  */
 
-/*
- * ADDITIONAL FUNCTION
- * find_by_order(k): returns iterator to the kth element
- *
- * order_of_key(k) : returns number of items that are strictly smaller
- * than our item k.
- */
+// /*
+//  * ADDITIONAL FUNCTION
+//  * find_by_order(k): returns iterator to the kth element
+//  *
+//  * order_of_key(k) : returns number of items that are strictly smaller
+//  * than our item k.
+//  */
 
-template <class INT>
-using ordered_set = tree<INT, null_type, std::less<INT>, rb_tree_tag,
-                         tree_order_statistics_node_update>;
+// template <class INT>
+// using ordered_set = tree<INT, null_type, std::less<INT>, rb_tree_tag,
+//                          tree_order_statistics_node_update>;
 
-template <class INT>
-using rordered_set = tree<INT, null_type, std::greater<INT>, rb_tree_tag,
-                          tree_order_statistics_node_update>;
+// template <class INT>
+// using rordered_set = tree<INT, null_type, std::greater<INT>, rb_tree_tag,
+//                           tree_order_statistics_node_update>;
 
-template <class INT>
-using multi_ordered_set = tree<INT, null_type, std::less_equal<INT>,
-                               rb_tree_tag, tree_order_statistics_node_update>;
+// template <class INT>
+// using multi_ordered_set = tree<INT, null_type, std::less_equal<INT>,
+//                                rb_tree_tag,
+//                                tree_order_statistics_node_update>;
 
-template <class INT>
-using rmulti_ordered_set = tree<INT, null_type, std::greater_equal<INT>,
-                                rb_tree_tag, tree_order_statistics_node_update>;
+// template <class INT>
+// using rmulti_ordered_set = tree<INT, null_type, std::greater_equal<INT>,
+//                                 rb_tree_tag,
+//                                 tree_order_statistics_node_update>;
 
 #define ll long long int
 #define lld long double
@@ -283,6 +285,7 @@ void make_seive() {
     if (isPrime[i])
       arePrimes.push_back(i);
 }
+
 void initiate(std::string name = "") {
   fast;
   /* make_seive(); */
@@ -303,23 +306,23 @@ public:
     Parent.resize(int(3e5) + 5, 0);
 
     for (int i = 0; i < n; i++)
-      Parent[i] = i;
+      add(i);
   }
 
-  void makeSet(int n) {
+  void add(int n) {
     Parent[n] = n;
     Size[n] = 1;
   }
 
-  int findSet(int i) {
-    return (Parent[i] == i) ? i : (Parent[i] = findSet(Parent[i]));
+  int find(int i) {
+    return (Parent[i] == i) ? i : (Parent[i] = find(Parent[i]));
   }
 
-  bool isSameSet(int i, int j) { return findSet(i) == findSet(j); }
+  bool is_same(int i, int j) { return find(i) == find(j); }
 
-  void unionSet(int a, int b) {
-    a = findSet(a);
-    b = findSet(b);
+  void merge(int a, int b) {
+    a = find(a);
+    b = find(b);
     if (a == b)
       return;
     if (Size[a] < Size[b])
