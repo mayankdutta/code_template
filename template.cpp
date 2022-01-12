@@ -144,6 +144,8 @@ using namespace std::chrono;
 #define INF (long long int)1e18
 #define inf (int)1e9
 
+/*********** operator overloadings ************/
+
 /* To print vector, cout << {name_of_vector}*/
 template <typename T>
 ostream &operator<<(ostream &COUT, const std::vector<T> &v) {
@@ -235,12 +237,9 @@ inline istream &operator>>(istream &CIN, std::vector<T> &arr) {
   return CIN;
 }
 
-template <typename INT> INT GCD(INT a, INT b) {
-  /* if (b == 0) return a; */
-  /* return gcd(b, a%b); */
-  return b ? GCD(b, a % b) : a;
-}
+/*********** Number theory ************/
 
+template <typename INT> INT GCD(INT a, INT b) { return b ? GCD(b, a % b) : a; }
 template <typename INT> INT LCM(INT a, INT b) { return a / GCD(a, b) * b; }
 
 template <typename INT> std::map<INT, int> factorize(INT n) {
@@ -295,6 +294,8 @@ void initiate(std::string name = "") {
   }
 }
 
+/*********** Disjoint union find, dsu ************/
+
 class UnionFind {
 public:
   std::vector<int> Parent;
@@ -332,6 +333,28 @@ public:
     Size[a] += Size[b];
   }
 } dsu;
+
+/*********** Bitset ************/
+
+template <typename INT>
+std ::vector<INT> to_binary(const INT &n, int Size = 31) {
+  vector<INT> ans;
+  for (int i = Size; i >= 0; i--)
+    ans.push_back(((n >> i) & 1));
+  return ans;
+}
+
+unsigned int next_power_of_two(unsigned int v) {
+  /* compute the next highest power of 2 of 32-bit v */
+  v--;
+  v |= v >> 1; // v >> 2 means, v/4, shifting rightward twice, 1000100 -> 10001
+  v |= v >> 2;
+  v |= v >> 4;
+  v |= v >> 8;
+  v |= v >> 16;
+  v++;
+  return v;
+}
 
 void solve() {}
 
