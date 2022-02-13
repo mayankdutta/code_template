@@ -4,6 +4,7 @@
 #include <chrono>
 #include <climits>
 #include <cmath>
+#include <random>
 
 #include <functional>
 #include <iostream>
@@ -354,6 +355,15 @@ unsigned int next_power_of_two(unsigned int v) {
   v |= v >> 16;
   v++;
   return v;
+}
+
+template <typename INT> INT get_random(INT start_index, INT end_index) {
+  std::random_device dev;
+  std::mt19937 rng(dev());
+  // distribution in range [start_index, end_index]
+  std::uniform_int_distribution<std::mt19937::result_type> dist6(start_index,
+                                                                 end_index);
+  return dist6(rng);
 }
 
 void solve() {}
