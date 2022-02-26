@@ -217,6 +217,7 @@ ostream &operator<<(ostream &COUT, const std::pair<T, S> &v) {
   return COUT;
 }
 
+/* To print array of pair, cout << {name_of_array_of_pairs}*/
 template <typename T, typename S>
 ostream &operator<<(ostream &COUT, const std::vector<std::pair<T, S>> &arr) {
   COUT << "{\n";
@@ -227,6 +228,29 @@ ostream &operator<<(ostream &COUT, const std::vector<std::pair<T, S>> &arr) {
       COUT << ",\n";
   }
   COUT << "\n}\n";
+  return COUT;
+}
+
+/* To print priority queue, max heap by default */
+template <typename INT>
+ostream &operator<<(ostream &COUT, priority_queue<INT> pq) {
+  COUT << " -> ";
+  for (; !pq.empty(); pq.pop())
+    COUT << pq.top() << ' ';
+
+  COUT << "| \n";
+  return COUT;
+}
+
+/* To print priority queue, min heap by default */
+template <typename INT>
+ostream &operator<<(ostream &COUT,
+                    priority_queue<INT, vector<INT>, greater<INT>> pq) {
+  COUT << " -> ";
+  for (; !pq.empty(); pq.pop())
+    COUT << pq.top() << ' ';
+
+  COUT << "| \n";
   return COUT;
 }
 
