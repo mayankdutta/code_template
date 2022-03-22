@@ -1,44 +1,60 @@
+## leetcode [blog](https://leetcode.com/problems/sum-of-subarray-minimums/discuss/178876/stack-solution-with-very-detailed-explanation-step-by-step)
+
+### Same concept applied in Max. Rectangle area.
+
+##### 1. Initialization part. 
+
 ```cpp
-  int n;
-  cin >> n;
+    int n = arr.size();
+    stack<int> temp, st;
+    vector<int> previous_less(n), next_less(n);
 
-  vector<int> arr(n);
-  for (auto &i : arr)
-    cin >> i;
-
-  vector<int> next_less(n, -1);
-  vector<int> previous_less(n, -1);
-
-  stack<int> st;
-  for (int i = 0; i < n; i++) {
-    while (!st.empty() and arr[st.top()] > arr[i]) {
-      st.pop();
+    /*
+     * default values
+     * values will change if calculating previous_Greater or previous_Lesser.
+     */
+    for (int i = 0; i < arr.size(); i++) {
+      previous_less[i] = -1;
+      next_less[i] = arr.size();
     }
 
-    previous_less[i] = (st.empty() ? -1 : st.top());
-    st.push(i);
-  }
 
-  for (int i = 0; i < n; i++) {
-    while (!st.empty() and arr[st.top()] > arr[i]) {
-      auto x = st.top();
-      st.pop();
-      next_less[x] = i;
+```
+##### 2. To calculate previous less
+
+```cpp
+    // for previous less
+    for (int i = 0; i < n; i++) {
+      while (!st.empty() && arr[st.top()] >= arr[i])
+        st.pop();
+      previous_less[i] = st.empty() ? -1 : st.top();
+      st.push(i);
     }
-    st.push(i);
-  }
+```
 
-  cout << '\n';
+##### 3. To calculate next less
+```cpp
+    std::swap(temp, st); // for emptying stack. 
 
-  for (const auto &i : previous_less)
-    cout << i << ' ';
-  cout << '\n';
-
-  for (const auto &i : next_less)
-    cout << i << ' ';
-  cout << '\n';
-
+    // for next less
+    for (int i = 0; i < n; i++) {
+      while (!st.empty() && arr[st.top()] >= arr[i]) {
+        auto x = st.top();
+        st.pop();
+        next_less[x] = i;
+      }
+      st.push(i);
+    }
 ```
 
 
-leetcode [blog](https://leetcode.com/problems/sum-of-subarray-minimums/discuss/178876/stack-solution-with-very-detailed-explanation-step-by-step)
+##### 4. Final calculation
+```cpp
+
+    int ans = 0;
+    for (int i = 0; i < arr.size(); i++)
+      ans = max(ans, (next_less[i] - previous_less[i] - 1) * arr[i]);
+
+    return ans;
+
+```
