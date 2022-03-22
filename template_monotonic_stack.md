@@ -25,6 +25,7 @@
 ```cpp
     // for previous less
     for (int i = 0; i < n; i++) {
+      // you might want to change >= to > according to your need. 
       while (!st.empty() && arr[st.top()] >= arr[i])
         st.pop();
       previous_less[i] = st.empty() ? -1 : st.top();
@@ -38,6 +39,7 @@
 
     // for next less
     for (int i = 0; i < n; i++) {
+      // you might want to change >= to > according to your need. 
       while (!st.empty() && arr[st.top()] >= arr[i]) {
         auto x = st.top();
         st.pop();
