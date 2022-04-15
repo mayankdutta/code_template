@@ -185,6 +185,18 @@ template <typename T> ostream &operator<<(ostream &COUT, const std::set<T> &v) {
 }
 
 template <typename T>
+ostream &operator<<(ostream &COUT, const std::unordered_set<T> &v) {
+  COUT << "{";
+  for (auto it : v) {
+    COUT << it;
+    if (it != *v.rbegin())
+      COUT << ", ";
+  }
+  COUT << "}\n";
+  return COUT;
+}
+
+template <typename T>
 ostream &operator<<(ostream &COUT, const std::multiset<T> &v) {
   COUT << "{";
   for (auto it : v) {
@@ -217,7 +229,6 @@ ostream &operator<<(ostream &COUT, const std::pair<T, S> &v) {
   return COUT;
 }
 
-/* To print array of pair, cout << {name_of_array_of_pairs}*/
 template <typename T, typename S>
 ostream &operator<<(ostream &COUT, const std::vector<std::pair<T, S>> &arr) {
   COUT << "{\n";
@@ -231,7 +242,6 @@ ostream &operator<<(ostream &COUT, const std::vector<std::pair<T, S>> &arr) {
   return COUT;
 }
 
-/* To print priority queue, max heap by default */
 template <typename INT>
 ostream &operator<<(ostream &COUT, priority_queue<INT> pq) {
   COUT << " -> ";
@@ -242,7 +252,6 @@ ostream &operator<<(ostream &COUT, priority_queue<INT> pq) {
   return COUT;
 }
 
-/* To print priority queue, min heap by default */
 template <typename INT>
 ostream &operator<<(ostream &COUT,
                     priority_queue<INT, vector<INT>, greater<INT>> pq) {
