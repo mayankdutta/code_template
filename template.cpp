@@ -38,49 +38,48 @@
 using namespace std;
 using namespace std::chrono;
 
-// #include <ext/pb_ds/assoc_container.hpp>
-// #include <ext/pb_ds/tree_policy.hpp>
+#include <ext/pb_ds/assoc_container.hpp>
+#include <ext/pb_ds/tree_policy.hpp>
 
-// using namespace __gnu_pbds;
+using namespace __gnu_pbds;
 
-// /*
-//  * null_type means we wish to use set, if we want to use map, use mapped_type
-//  *
-//  * less : It is the basis for comparison of two functions.
-//  *
-//  * rb_tree_tag: type of tree used, here it is red black tree.
-//  *
-//  * tree_order_statistics_node__update : It is included in tree_policy.hpp and
-//  * contains various operations for updating the node variants of a tree-based
-//  * container, so we can keep track of metadata like the number of nodes in a
-//  * subtree
-//  */
+/*
+ * null_type means we wish to use set, if we want to use map, use mapped_type
+ *
+ * less : It is the basis for comparison of two functions.
+ *
+ * rb_tree_tag: type of tree used, here it is red black tree.
+ *
+ * tree_order_statistics_node__update : It is included in tree_policy.hpp and
+ * contains various operations for updating the node variants of a tree-based
+ * container, so we can keep track of metadata like the number of nodes in a
+ * subtree
+ */
 
-// /*
-//  * ADDITIONAL FUNCTION
-//  * find_by_order(k): returns iterator to the kth element
-//  *
-//  * order_of_key(k) : returns number of items that are strictly smaller
-//  * than our item k.
-//  */
+/*
+ * ADDITIONAL FUNCTION
+ * find_by_order(k): returns ITERATOR to the kth element
+ *
+ * order_of_key(k) : returns NUMBER of items that are strictly smaller
+ * than our item k. won't be able to find this with the upper/lower bound, this
+ * is not an 1D array.
+ */
 
-// template <class INT>
-// using ordered_set = tree<INT, null_type, std::less<INT>, rb_tree_tag,
-//                          tree_order_statistics_node_update>;
+template <class INT>
+using ordered_set = tree<INT, null_type, std::less<INT>, rb_tree_tag,
+                         tree_order_statistics_node_update>;
 
-// template <class INT>
-// using rordered_set = tree<INT, null_type, std::greater<INT>, rb_tree_tag,
-//                           tree_order_statistics_node_update>;
+template <class INT>
+using rordered_set = tree<INT, null_type, std::greater<INT>, rb_tree_tag,
+                          tree_order_statistics_node_update>;
 
-// template <class INT>
-// using multi_ordered_set = tree<INT, null_type, std::less_equal<INT>,
-//                                rb_tree_tag,
-//                                tree_order_statistics_node_update>;
+template <class INT>
+using multi_ordered_set = tree<INT, null_type, std::less_equal<INT>,
+                               rb_tree_tag, tree_order_statistics_node_update>;
 
-// template <class INT>
-// using rmulti_ordered_set = tree<INT, null_type, std::greater_equal<INT>,
-//                                 rb_tree_tag,
-//                                 tree_order_statistics_node_update>;
+template <class INT>
+using rmulti_ordered_set = tree<INT, null_type, std::greater_equal<INT>,
+                                rb_tree_tag, tree_order_statistics_node_update>;
 
 #define ll long long int
 #define lld long double
@@ -185,18 +184,6 @@ template <typename T> ostream &operator<<(ostream &COUT, const std::set<T> &v) {
 }
 
 template <typename T>
-ostream &operator<<(ostream &COUT, const std::unordered_set<T> &v) {
-  COUT << "{";
-  for (auto it : v) {
-    COUT << it;
-    if (it != *v.rbegin())
-      COUT << ", ";
-  }
-  COUT << "}\n";
-  return COUT;
-}
-
-template <typename T>
 ostream &operator<<(ostream &COUT, const std::multiset<T> &v) {
   COUT << "{";
   for (auto it : v) {
@@ -229,6 +216,7 @@ ostream &operator<<(ostream &COUT, const std::pair<T, S> &v) {
   return COUT;
 }
 
+/* To print array of pair, cout << {name_of_array_of_pairs}*/
 template <typename T, typename S>
 ostream &operator<<(ostream &COUT, const std::vector<std::pair<T, S>> &arr) {
   COUT << "{\n";
@@ -242,6 +230,7 @@ ostream &operator<<(ostream &COUT, const std::vector<std::pair<T, S>> &arr) {
   return COUT;
 }
 
+/* To print priority queue, max heap by default */
 template <typename INT>
 ostream &operator<<(ostream &COUT, priority_queue<INT> pq) {
   COUT << " -> ";
@@ -252,6 +241,7 @@ ostream &operator<<(ostream &COUT, priority_queue<INT> pq) {
   return COUT;
 }
 
+/* To print priority queue, min heap by default */
 template <typename INT>
 ostream &operator<<(ostream &COUT,
                     priority_queue<INT, vector<INT>, greater<INT>> pq) {
@@ -399,7 +389,24 @@ template <typename INT> INT get_random(INT start_index, INT end_index) {
   return dist6(rng);
 }
 
-void solve() {}
+void solve() {
+  ordered_set<int> st;
+  st.insert(1);
+  st.insert(2);
+  st.insert(3);
+  st.insert(4);
+  st.insert(5);
+  st.insert(1);
+
+  cout << "print: ";
+  for (auto &i : st) {
+    cout << i << ' ';
+  }
+  cout << '\n';
+
+  cout << *st.find_by_order(4) << '\n';
+  cout << st.order_of_key(4) << '\n';
+}
 
 int main() {
   auto start = high_resolution_clock::now();
