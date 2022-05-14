@@ -12,11 +12,14 @@ public:
   int defaultSize;
 
   UnionFind() : defaultSize(int(3e5) + 5) {}
+
   void init(int n) {
     Size.resize(std::max(n, defaultSize), 1);
     Parent.resize(std::max(n, defaultSize), 0);
-
     std::iota(Parent.begin(), Parent.end(), 0);
+
+    number_of_components = n;
+    max_size_of_component = 1;
   }
 
   void add(int n) {
